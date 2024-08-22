@@ -33,7 +33,7 @@ with pkgs; {
   agpl = "curl https://www.gnu.org/licenses/agpl-3.0.txt -o LICENSE";
   webcam = "ffplay /dev/video0";
   rebuild = "sh /etc/nixos/rebuild.sh";
-  edit = "sudo nvim /etc/nixos";
+  edit = "nvim /etc/nixos";
   g = "git";
   n = "nix";
   mnt = "udisksctl mount -b";

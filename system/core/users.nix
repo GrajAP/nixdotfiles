@@ -12,9 +12,10 @@
   users = {
     mutableUsers = false;
     users = {
+      root.hashedPasswordFile = "/secrets/user";
       grajap = {
         isNormalUser = true;
-        initialPassword = "haselko123";
+        hashedPasswordFile = "/secrets/user";
         extraGroups = [
           "wheel"
           "gitea"
@@ -37,7 +38,7 @@
           if config.services.greetd.enable
           then pkgs.zsh
           else pkgs.bash;
-        
+
       };
       };
   };
