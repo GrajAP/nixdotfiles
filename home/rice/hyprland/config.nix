@@ -11,7 +11,7 @@ in {
       exec-once = [
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
 	"pamixer -m"
-	"brightnessctl set 50%"
+	"brightnessctl set 100%"
         # set cursor for HL itself
         "hyprctl setcursor Catppuccin-Mauve 24"
 #"swaybg -i ${theme.wallpaper}"

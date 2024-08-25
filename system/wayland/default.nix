@@ -33,7 +33,6 @@
 
   hardware = {
     opengl.enable = true;
-    pulseaudio.support32Bit = true;
   };
 
   xdg.portal = {
@@ -45,8 +44,4 @@
     ];
   };
 
-  sound = {
-    enable = true;
-    mediaKeys.enable = true;
-  };
 }

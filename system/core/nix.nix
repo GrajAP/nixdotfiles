@@ -31,16 +31,18 @@
       # Wolność kocham i rozumiem
       # Wolności oddać nie umiem
       # <3333
-      allowUnfree = false;
+      allowUnfree = true;
       allowBroken = true;
       permittedInsecurePackages = [
         "openssl-1.1.1u"
         "electron-25.9.0"
       ];
-      
-      overlays = [
+
+    overlays = [
         # workaround for: https://github.com/NixOS/nixpkgs/issues/154163
         (_: super: {
+          hardware.pulseaudio.package = super.pulseaudioFull;
+          sof-firmware = super.sof-firmware;
           coreutils = super.uutils-coreutils-noprefix;
           coreutils-full = super.uutils-coreutils-noprefix;
           makeModulesClosure = x:
@@ -115,6 +117,6 @@
       ];
     };
   };
-  system.autoUpgrade.enable = false;
-  system.stateVersion = "22.05"; # DONT TOUCH THIS
+  system.autoUpgrade.enable = true;
+  system.stateVersion = "24.05"; # DONT TOUCH THIS
 }

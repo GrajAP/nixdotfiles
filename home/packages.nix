@@ -1,7 +1,9 @@
 {pkgs, ...}: {
-  nixpkgs.config.allowUnfree = false;
+  nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
     safeeyes
+    vlc
+    firefox
     wlogout
     killall
     caprine-bin

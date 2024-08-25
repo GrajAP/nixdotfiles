@@ -2,7 +2,7 @@
   imports = [
     ./system.nix
 #   ./impernamence.nix
-    ./schizo.nix
+#   ./schizo.nix
     ./network.nix
 #   ./secrets.nix
     ./nix.nix
