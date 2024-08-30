@@ -10,6 +10,7 @@
   imports = [
     inputs.nix-index-db.hmModules.nix-index
     inputs.barbie.homeManagerModule
+    inputs.nix-colors.homeManagerModule
     inputs.schizofox.homeManagerModule
     inputs.hyprlock.homeManagerModules.default
     inputs.hypridle.homeManagerModules.default
