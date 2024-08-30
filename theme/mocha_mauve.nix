@@ -27,5 +27,4 @@ rec {
   crust = "11111b";
 
   accent = mauve;
-  sakura = ./sakura.png;
 }

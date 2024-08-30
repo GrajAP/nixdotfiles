@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
+    nix-colors.url = "github:misterio77/nix-colors";
     agenix = {
       url = "github:ryantm/agenix";
       inputs.home-manager.follows = "home-manager";
