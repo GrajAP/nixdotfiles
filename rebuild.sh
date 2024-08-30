@@ -8,7 +8,6 @@
 #       `nixos-rebuild switch -I nixos-config=path/to/configuration.nix`
 #    4. If you uses a flake as your primary config, you can specify a path to `configuration.nix` in it and then `nixos-rebuild switch —flake` path/to/directory
 # As I hope was clear from the video, I am new to nixos, and there may be other, better, options, in which case I'd love to know them! (I'll update the gist if so)
-# sudo nixos-rebuild switch --flake /etc/nixos/#default
 
 # A rebuild script that commits on a successful build
 set -e
@@ -17,13 +16,10 @@ set -e
 alejandra . &>/dev/null \
   || ( alejandra . ; echo "formatting failed!" && exit 1)
 
-# Shows your changes
-git diff -U0 '*.nix'
-
 echo "NixOS Rebuilding..."
 
 # Rebuild, output simplified errors, log trackebacks
-sudo nixos-rebuild switch --flake /etc/nixos/#default &>nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1)
+sudo nixos-rebuild switch --flake /etc/nixos/#default
 
 # Get current generation metadata
 current=$(nixos-rebuild list-generations | grep current)
