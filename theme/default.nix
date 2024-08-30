@@ -5,7 +5,6 @@
     flamingo = "f2cdcd";
     pink = "f5c2e7";
     mauve = "cba6f7";
-    #   mauve = config.colorScheme.palette.base05;
     red = "f38ba8";
     maroon = "eba0ac";
     peach = "fab387";
