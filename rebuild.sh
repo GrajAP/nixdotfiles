@@ -12,6 +12,7 @@
 # A rebuild script that commits on a successful build
 set -e
 
+cd /etc/nixos/
 # Autoformat your nix files
 alejandra /etc/nixos/ &>/dev/null \
   || ( alejandra /etc/nixos/ ; echo "formatting failed!" && exit 1)
@@ -25,7 +26,6 @@ sudo nixos-rebuild switch --flake /etc/nixos/#default
 current=$(nixos-rebuild list-generations | grep current)
 
 # Commit all changes witih the generation metadata
-cd /etc/nixos/
 git add *
 git commit -am "$current"
 git push
