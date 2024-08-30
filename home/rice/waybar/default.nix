@@ -65,14 +65,6 @@ in {
         color: #${sapphire};
       }
 
-      #custom-power {
-          color: #${red};
-      }
-
-      #custom-lock {
-          color: #${accent};
-      }
-
       #workspaces button.active {
         color: #${accent};
       }
@@ -83,36 +75,15 @@ in {
 
       #clock,
       #network,
-      #cpu,
       #battery,
       #backlight,
-      #memory,
       #workspaces,
-      #custom-search,
-      #custom-power,
-      #custom-todo,
-      #custom-lock,
       #custom-weather,
-      #custom-btc,
-      #custom-eth,
-      #volume,
       #pulseaudio {
         border-radius: 15px;
         margin: 0px 7px 0px 7px;
         background-color: #${surface0};
         padding: 10px 0px 10px 0px;
-      }
-
-      #custom-power {
-        margin-bottom: 7px;
-        padding-right: 6px;
-      }
-      #custom-search {
-        background-image: url("${theme.sakura}");
-        background-size: 60%;
-        background-position: center;
-        background-repeat: no-repeat;
-        margin-top: 7px;
       }
       #clock {
         font-weight: 700;
@@ -164,7 +135,7 @@ in {
           "battery"
         ];
         modules-center = [];
-        modules-right = ["pulseaudio" "network" "clock" "custom/power"];
+        modules-right = ["pulseaudio" "network" "clock"];
         "hyprland/workspaces" = {
           on-click = "activate";
           format = "{icon}";
@@ -241,11 +212,10 @@ in {
         };
         pulseaudio = {
           scroll-step = 5;
-          tooltip = true;
-          tooltip-format = "{volume}% {format_source}";
+          tooltip = false;
           on-click = "pkill -9 pavucontrol || ${pkgs.pavucontrol}/bin/pavucontrol";
-          format = " {icon}\n{volume}%";
-          format-bluetooth = "󰂯 {icon} {volume}%";
+          format = "{volume}%";
+          format-bluetooth = "󰂯 {volume}%";
           format-muted = "󰝟 ";
           format-icons = {
             default = ["" "" " "];

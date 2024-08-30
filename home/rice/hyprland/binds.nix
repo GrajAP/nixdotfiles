@@ -25,7 +25,7 @@ in {
       [
         ''${mod},RETURN,exec,run-as-service foot${lib.optionalString config.programs.foot.server.enable "client"}''
         "${mod},SPACE,exec,run-as-service $(tofi-drun)"
-        "${mod},F,exec,schizofox"
+        "${mod},F,exec,firefox"
         "${mod},C,killactive"
         "${mod},P,pseudo"
 
@@ -53,7 +53,7 @@ in {
 
         "${mod},Period,exec, tofi-emoji"
 
-        "${modshift},L,exec,hyprlock"
+        "${modshift},L,exec,wlogout"
       ]
       ++ workspaces;
 
