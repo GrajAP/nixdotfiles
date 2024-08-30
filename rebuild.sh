@@ -29,7 +29,9 @@ sudo nixos-rebuild switch --flake /etc/nixos/#default &>nixos-switch.log || (cat
 current=$(nixos-rebuild list-generations | grep current)
 
 # Commit all changes witih the generation metadata
+git add *
 git commit -am "$current"
+git push
 
 # Notify all OK!
 notify-send -e "NixOS Rebuilt OK!" --icon=software-update-available
