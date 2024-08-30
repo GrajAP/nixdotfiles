@@ -13,8 +13,8 @@
 set -e
 
 # Autoformat your nix files
-alejandra . &>/dev/null \
-  || ( alejandra . ; echo "formatting failed!" && exit 1)
+alejandra /etc/nixos/ &>/dev/null \
+  || ( alejandra /etc/nixos/ ; echo "formatting failed!" && exit 1)
 
 echo "NixOS Rebuilding..."
 
@@ -25,6 +25,7 @@ sudo nixos-rebuild switch --flake /etc/nixos/#default
 current=$(nixos-rebuild list-generations | grep current)
 
 # Commit all changes witih the generation metadata
+cd /etc/nixos/
 git add *
 git commit -am "$current"
 git push
