@@ -40,4 +40,3 @@ in {
     mimeApps.defaultApplications = associations;
   };
 }
-

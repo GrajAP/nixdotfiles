@@ -31,8 +31,8 @@ in {
     power-profiles-daemon.enable = true;
     undervolt = {
       enable = true;
-     #coreOffset = -5;
-     #gpuOffset = -30;
+      #coreOffset = -5;
+      #gpuOffset = -30;
       tempBat = 55;
     };
     # DBus service that provides power management support to applications.
@@ -95,4 +95,3 @@ in {
     ];
   };
 }
-

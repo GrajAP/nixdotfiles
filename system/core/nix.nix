@@ -38,7 +38,7 @@
         "electron-25.9.0"
       ];
 
-    overlays = [
+      overlays = [
         # workaround for: https://github.com/NixOS/nixpkgs/issues/154163
         (_: super: {
           hardware.pulseaudio.package = super.pulseaudioFull;

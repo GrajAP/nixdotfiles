@@ -1,5 +1,8 @@
-{ config, pkgs,  ... }:
 {
+  config,
+  pkgs,
+  ...
+}: {
   hardware = {
     pulseaudio.support32Bit = true;
     enableAllFirmware = true;
@@ -18,5 +21,4 @@
     pulse.enable = true;
     jack.enable = true;
   };
-
 }

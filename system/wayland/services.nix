@@ -1,5 +1,4 @@
 {pkgs, ...}: {
- 
   systemd.services = {
     seatd = {
       enable = true;
@@ -14,7 +13,6 @@
     };
   };
 
-   
   services = {
     xserver.enable = true;
     openssh.enable = true;

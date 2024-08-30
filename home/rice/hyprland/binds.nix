@@ -23,7 +23,7 @@ in {
   wayland.windowManager.hyprland.settings = {
     bind =
       [
-      ''${mod},RETURN,exec,run-as-service foot${lib.optionalString config.programs.foot.server.enable "client"}''
+        ''${mod},RETURN,exec,run-as-service foot${lib.optionalString config.programs.foot.server.enable "client"}''
         "${mod},SPACE,exec,run-as-service $(tofi-drun)"
         "${mod},F,exec,schizofox"
         "${mod},C,killactive"

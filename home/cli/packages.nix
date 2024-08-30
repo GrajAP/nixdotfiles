@@ -33,6 +33,8 @@ in {
     # ping, but with cool graph
     gping
 
+    killall
+    neovim
     # dns client
     dogdns
 

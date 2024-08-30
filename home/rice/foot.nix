@@ -5,6 +5,7 @@
 }: {
   home.packages = with pkgs; [
     libsixel
+    foot
     # for displaying images
   ];
   programs.foot = {
@@ -81,7 +82,7 @@
         unicode-input = "Control+Shift+i";
       };
       search-bindings = {
-	cursor-home=" Home Control+a";
+        cursor-home = " Home Control+a";
       };
       mouse-bindings = {
         selection-override-modifiers = "Shift";

@@ -28,4 +28,3 @@
 in {
   home.packages = [run-as-service];
 }
-

@@ -1,6 +1,6 @@
 {...}: {
   imports = [
-     ./wayland
-     ./core
+    ./wayland
+    ./core
   ];
 }

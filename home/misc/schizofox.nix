@@ -1,6 +1,6 @@
 {theme, ...}: {
   programs.schizofox = {
-    enable = true;
+    enable = false;
     security = {
       wrapWithProxychains = false;
       sanitizeOnShutdown = false;
@@ -8,7 +8,7 @@
       userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0";
     };
     misc = {
-      drm.enable= true;
+      drm.enable = true;
       disableWebgl = false;
     };
     theme = {

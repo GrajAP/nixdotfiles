@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
-    safeeyes
     vlc
     firefox
     wlogout
@@ -9,7 +8,6 @@
     caprine-bin
     python3
     libreoffice-fresh
-    inkscape
     tdesktop
     webcord
     calcurse
@@ -18,12 +16,9 @@
     transmission-gtk
     gimp
     wireshark
-    keepassxc
     neovim
     wget
     git
-    foot
     dconf
   ];
 }
-

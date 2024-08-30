@@ -8,7 +8,7 @@
   services.openssh = {
     enable = true;
     openFirewall = true;
-      };
+  };
   users = {
     mutableUsers = false;
     users = {
@@ -38,8 +38,7 @@
           if config.services.greetd.enable
           then pkgs.zsh
           else pkgs.bash;
-
       };
-      };
+    };
   };
 }

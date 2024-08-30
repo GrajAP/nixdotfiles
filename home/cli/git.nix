@@ -4,10 +4,10 @@
     enable = true;
     userName = "GrajAP";
     userEmail = "adampisarczyk2006@gmail.com";
-#   signing = {
-#     key = "056CFD15A9F99B0E";
-#     signByDefault = false;
-#   };
+    #   signing = {
+    #     key = "056CFD15A9F99B0E";
+    #     signByDefault = false;
+    #   };
     ignores = [
       ".cache/"
       ".DS_Store"
@@ -71,4 +71,3 @@
     };
   };
 }
-

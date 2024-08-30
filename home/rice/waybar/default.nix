@@ -23,130 +23,130 @@ in {
   programs.waybar = {
     enable = true;
     style = with theme.colors; ''
-  * {
-    /* `otf-font-awesome` is required to be installed for icons */
-    font-family: Material Design Icons, Iosevka Nerd Font;
-  }
+      * {
+        /* `otf-font-awesome` is required to be installed for icons */
+        font-family: Material Design Icons, Iosevka Nerd Font;
+      }
 
-  window#waybar {
-    background-color: #${base};
-    border-radius: 0px;
-    color: #${accent};
-    font-size: 20px;
-    /* transition-property: background-color; */
-    transition-duration: 0.5s;
-  }
+      window#waybar {
+        background-color: #${base};
+        border-radius: 0px;
+        color: #${accent};
+        font-size: 20px;
+        /* transition-property: background-color; */
+        transition-duration: 0.5s;
+      }
 
-  window#waybar.hidden {
-    opacity: 0.2;
-  }
+      window#waybar.hidden {
+        opacity: 0.2;
+      }
 
-  #workspaces {
-    font-size: 15px;
-    background-color: #${surface0};
-  }
+      #workspaces {
+        font-size: 15px;
+        background-color: #${surface0};
+      }
 
-  #pulseaudio {
-    color: #${accent};
-  }
-  #network {
-    color: #${accent};
-  }
+      #pulseaudio {
+        color: #${accent};
+      }
+      #network {
+        color: #${accent};
+      }
 
-  #workspaces button {
-    background-color: transparent;
-    color: #${blue};
-    /* Use box-shadow instead of border so the text isn't offset */
-    box-shadow: inset 0 -3px transparent;
-  }
+      #workspaces button {
+        background-color: transparent;
+        color: #${blue};
+        /* Use box-shadow instead of border so the text isn't offset */
+        box-shadow: inset 0 -3px transparent;
+      }
 
-  /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-  #workspaces button:hover {
-    color: #${sapphire};
-  }
+      /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+      #workspaces button:hover {
+        color: #${sapphire};
+      }
 
-  #custom-power {
-      color: #${red};
-  }
+      #custom-power {
+          color: #${red};
+      }
 
-  #custom-lock {
-      color: #${accent};
-  }
+      #custom-lock {
+          color: #${accent};
+      }
 
-  #workspaces button.active {
-    color: #${accent};
-  }
+      #workspaces button.active {
+        color: #${accent};
+      }
 
-  #workspaces button.urgent {
-    background-color: #${red};
-  }
+      #workspaces button.urgent {
+        background-color: #${red};
+      }
 
-  #clock,
-  #network,
-  #cpu,
-  #battery,
-  #backlight,
-  #memory,
-  #workspaces,
-  #custom-search,
-  #custom-power,
-  #custom-todo,
-  #custom-lock,
-  #custom-weather,
-  #custom-btc,
-  #custom-eth,
-  #volume,
-  #pulseaudio {
-    border-radius: 15px;
-    margin: 0px 7px 0px 7px;
-    background-color: #${surface0}; 
-    padding: 10px 0px 10px 0px;
-  }
+      #clock,
+      #network,
+      #cpu,
+      #battery,
+      #backlight,
+      #memory,
+      #workspaces,
+      #custom-search,
+      #custom-power,
+      #custom-todo,
+      #custom-lock,
+      #custom-weather,
+      #custom-btc,
+      #custom-eth,
+      #volume,
+      #pulseaudio {
+        border-radius: 15px;
+        margin: 0px 7px 0px 7px;
+        background-color: #${surface0};
+        padding: 10px 0px 10px 0px;
+      }
 
-  #custom-power {
-    margin-bottom: 7px;
-    padding-right: 6px;
-  }
-  #custom-search {
-    background-image: url("${theme.sakura}");
-    background-size: 60%;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin-top: 7px;
-  }
-  #clock {
-    font-weight: 700;
-    font-size: 20px;
-    padding: 5px 0px 5px 0px;
-    font-family: "Iosevka Term";
-  }
-  #backlight {
-    padding-right: 2px;
-    color: #${accent};
-  }
-  #battery {
-    color: #${accent};
-  }
+      #custom-power {
+        margin-bottom: 7px;
+        padding-right: 6px;
+      }
+      #custom-search {
+        background-image: url("${theme.sakura}");
+        background-size: 60%;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin-top: 7px;
+      }
+      #clock {
+        font-weight: 700;
+        font-size: 20px;
+        padding: 5px 0px 5px 0px;
+        font-family: "Iosevka Term";
+      }
+      #backlight {
+        padding-right: 2px;
+        color: #${accent};
+      }
+      #battery {
+        color: #${accent};
+      }
 
-  #battery.warning {
-    color: #${peach};
-  }
+      #battery.warning {
+        color: #${peach};
+      }
 
-  #battery.critical:not(.charging) {
-    color: #${red};
-  }
-  tooltip {
-    font-family: 'Lato', sans-serif;
-    border-radius: 15px;
-    padding: 20px;
-    margin: 30px;
-    color: #${accent}
-  }
-  tooltip label {
-    font-family: 'Lato', sans-serif;
-    padding: 20px;
-  }
-'';
+      #battery.critical:not(.charging) {
+        color: #${red};
+      }
+      tooltip {
+        font-family: 'Lato', sans-serif;
+        border-radius: 15px;
+        padding: 20px;
+        margin: 30px;
+        color: #${accent}
+      }
+      tooltip label {
+        font-family: 'Lato', sans-serif;
+        padding: 20px;
+      }
+    '';
     systemd = {
       enable = true;
       target = "hyprland-session.target";
@@ -255,4 +255,3 @@ in {
     };
   };
 }
-

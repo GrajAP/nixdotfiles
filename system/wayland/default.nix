@@ -1,12 +1,12 @@
 {pkgs, ...}: {
-  imports = [./fonts.nix ./pipewire.nix ./services.nix ];
+  imports = [./fonts.nix ./pipewire.nix ./services.nix];
   environment.etc."greetd/environments".text = ''
     Hyprland
   '';
 
   environment = {
     variables = {
-#     NIXOS_OZONE_WL = "1";
+      #     NIXOS_OZONE_WL = "1";
       __GL_GSYNC_ALLOWED = "0";
       __GL_VRR_ALLOWED = "0";
       _JAVA_AWT_WM_NONEREPARENTING = "1";
@@ -29,7 +29,7 @@
       CLUTTER_BACKEND = "wayland";
       WLR_DRM_DEVICES = "/dev/dri/card1:/dev/dri/card0";
     };
-      };
+  };
 
   hardware = {
     opengl.enable = true;
@@ -43,5 +43,4 @@
       pkgs.xdg-desktop-portal-hyprland
     ];
   };
-
 }

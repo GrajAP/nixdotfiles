@@ -38,4 +38,3 @@ in {
     loader.efi.canTouchEfiVariables = true;
   };
 }
-
