@@ -4,7 +4,6 @@
     vlc
     firefox
     wlogout
-    killall
     caprine-bin
     python3
     libreoffice-fresh
@@ -16,9 +15,6 @@
     transmission-gtk
     gimp
     wireshark
-    neovim
-    wget
-    git
     dconf
   ];
 }

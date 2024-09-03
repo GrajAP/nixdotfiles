@@ -19,7 +19,11 @@ in {
   home.packages = with pkgs; [
     neofetch
     texlive
+    neovim
+    killall
+    git
     zoxide
+    wget
     pandoc-watch
     pandoc
     # Tbh should be preinstalled
@@ -33,8 +37,6 @@ in {
     # ping, but with cool graph
     gping
 
-    killall
-    neovim
     # dns client
     dogdns
 
