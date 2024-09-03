@@ -82,7 +82,7 @@
         unicode-input = "Control+Shift+i";
       };
       search-bindings = {
-        cursor-home = " Home Control+a";
+        cursor-home = " Home Control+A";
       };
       mouse-bindings = {
         selection-override-modifiers = "Shift";

@@ -3,23 +3,7 @@
   lib,
   theme,
   ...
-}:
-with lib; let
-  waybar-wttr = pkgs.stdenv.mkDerivation {
-    name = "waybar-wttr";
-    buildInputs = [
-      (pkgs.python39.withPackages
-        (pythonPackages: with pythonPackages; [requests]))
-    ];
-    unpackPhase = "true";
-    installPhase = ''
-      mkdir -p $out/bin
-      cp ${./waybar-wttr.py} $out/bin/waybar-wttr
-      chmod +x $out/bin/waybar-wttr
-    '';
-  };
-in {
-  home.packages = [waybar-wttr];
+}: {
   programs.waybar = {
     enable = true;
     style = with theme.colors; ''
@@ -78,7 +62,6 @@ in {
       #battery,
       #backlight,
       #workspaces,
-      #custom-weather,
       #pulseaudio {
         border-radius: 15px;
         margin: 0px 7px 0px 7px;
@@ -130,7 +113,6 @@ in {
         spacing = 7;
         modules-left = [
           "hyprland/workspaces"
-          "custom/weather"
           "backlight"
           "battery"
         ];
@@ -161,14 +143,6 @@ in {
           format = " ";
           tooltip = false;
           on-click = "${pkgs.tofi}/bin/tofi-drun";
-        };
-
-        "custom/weather" = {
-          format = "{}";
-          tooltip = true;
-          interval = 3600;
-          exec = "waybar-wttr";
-          return-type = "json";
         };
         "custom/lock" = {
           tooltip = false;
