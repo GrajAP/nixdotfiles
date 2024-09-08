@@ -1,4 +1,5 @@
-{...}: {
+{lib, ...}: {
+  programs.neovim.extraConfig = lib.fileContents ./nvim/init.lua;
   imports = [
     ./zsh
     ./starship.nix
