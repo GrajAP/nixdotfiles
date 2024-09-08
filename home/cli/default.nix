@@ -1,5 +1,5 @@
-{lib, ...}: {
-  programs.neovim.extraConfig = lib.fileContents ./nvim/init.lua;
+{...}: {
+  xdg.configFile.nvim.source = ./nvim;
   imports = [
     ./zsh
     ./starship.nix
