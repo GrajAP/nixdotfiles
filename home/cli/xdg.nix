@@ -24,6 +24,7 @@
   };
 in {
   xdg = {
+    configFile.nvim.source = ./nvim;
     userDirs = {
       enable = true;
       documents = "$HOME/other";

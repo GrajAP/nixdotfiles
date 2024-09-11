@@ -1,5 +1,4 @@
 {...}: {
-  xdg.configFile.nvim.source = ./nvim;
   imports = [
     ./zsh
     ./starship.nix
