@@ -28,7 +28,7 @@
     mantle = "181825";
     crust = "11111b";
 
-    accent = mauve;
+    accent = pink;
   };
   wallpaper = ./wall.png;
 }
