@@ -24,6 +24,8 @@ in {
       };
     };
     firewall = {
+      allowedTCPPorts = [25565];
+      allowedUDPPorts = [25565];
       enable = true;
       allowPing = false;
       logReversePathDrops = true;
