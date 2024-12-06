@@ -4,6 +4,7 @@
     udev
     vlc
     firefox
+    brave
     wlogout
     caprine-bin
     python3
