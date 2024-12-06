@@ -3,7 +3,6 @@
   home.packages = with pkgs; [
     udev
     vlc
-    firefox
     brave
     wlogout
     caprine-bin
