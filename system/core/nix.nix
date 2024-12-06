@@ -118,5 +118,5 @@
     };
   };
   system.autoUpgrade.enable = true;
-  system.stateVersion = "24.05"; # DONT TOUCH THIS
+  system.stateVersion = "24.11"; # DONT TOUCH THIS
 }

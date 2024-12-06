@@ -3,8 +3,8 @@
   home.packages = with pkgs; [
     udev
     vlc
-    firefox
     wlogout
+    google-chrome
     netflix
     caprine-bin
     python3
