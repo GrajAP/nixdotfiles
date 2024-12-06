@@ -21,7 +21,6 @@
         vertical-letter-offset = "-0.75";
         pad = "12x21 center";
         resize-delay-ms = 100;
-        desktop-notifications = "notify-send -a \${app-id} -i \${app-id} \${title} \${body}";
         selection-target = "primary";
         # box-drawings-uses-font-glyphs = "yes";
         dpi-aware = "yes";
