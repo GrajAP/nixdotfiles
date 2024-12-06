@@ -4,9 +4,8 @@
     udev
     vlc
     firefox
-    opera
-    brave
     wlogout
+    netflix
     caprine-bin
     python3
     libreoffice-fresh
