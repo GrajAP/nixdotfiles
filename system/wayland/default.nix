@@ -30,11 +30,6 @@
       WLR_DRM_DEVICES = "/dev/dri/card1:/dev/dri/card0";
     };
   };
-
-  hardware = {
-    opengl.enable = true;
-  };
-
   xdg.portal = {
     enable = true;
     config.common.default = "*";

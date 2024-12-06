@@ -7,10 +7,6 @@
     pulseaudio.support32Bit = true;
     enableAllFirmware = true;
   };
-  sound = {
-    enable = true;
-    mediaKeys.enable = true;
-  };
   services.pipewire = {
     enable = true;
     alsa = {

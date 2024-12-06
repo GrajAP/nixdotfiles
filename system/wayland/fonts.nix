@@ -16,10 +16,9 @@
       dejavu_fonts
       iosevka-bin
       noto-fonts
-      noto-fonts-cjk
+      noto-fonts-cjk-sans
       noto-fonts-emoji
       jetbrains-mono
-      (nerdfonts.override {fonts = ["Iosevka" "JetBrainsMono"];})
     ];
 
     enableDefaultPackages = false;

@@ -12,8 +12,6 @@
     inputs.barbie.homeManagerModule
     inputs.nix-colors.homeManagerModule
     inputs.schizofox.homeManagerModule
-    inputs.hyprlock.homeManagerModules.default
-    inputs.hypridle.homeManagerModules.default
     ./packages.nix
 
     ./cli

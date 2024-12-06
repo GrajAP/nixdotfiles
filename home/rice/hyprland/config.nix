@@ -73,12 +73,6 @@ in {
           contrast = 0.7;
           brightness = 0.8;
         };
-
-        # shadow config
-        drop_shadow = "no";
-        shadow_range = 20;
-        shadow_render_power = 5;
-        "col.shadow" = "rgba(292c3cee)";
       };
 
       misc = {
@@ -123,7 +117,6 @@ in {
       dwindle = {
         pseudotile = false;
         preserve_split = "yes";
-        no_gaps_when_only = false;
       };
 
       "$kw" = "dwindle:no_gaps_when_only";
