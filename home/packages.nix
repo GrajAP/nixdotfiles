@@ -5,6 +5,7 @@
     vlc
     wlogout
     google-chrome
+    firefox
     netflix
     caprine-bin
     python3
