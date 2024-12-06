@@ -4,7 +4,6 @@
     udev
     vlc
     wlogout
-    google-chrome
     firefox
     caprine-bin
     python3
