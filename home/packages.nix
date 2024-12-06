@@ -6,7 +6,6 @@
     wlogout
     google-chrome
     firefox
-    netflix
     caprine-bin
     python3
     libreoffice-fresh
