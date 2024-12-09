@@ -20,6 +20,8 @@ alejandra /etc/nixos/ &>/dev/null \
 echo "NixOS Rebuilding..."
 
 # Rebuild, output simplified errors, log trackebacks
+cd /etc/nixos
+sudo nix flake update
 sudo nixos-rebuild switch --flake /etc/nixos/#default
 
 # Get current generation metadata

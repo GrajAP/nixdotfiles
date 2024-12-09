@@ -1,6 +1,6 @@
 {theme, ...}: {
   programs.schizofox = {
-    enable = false;
+    enable = true;
     security = {
       wrapWithProxychains = false;
       sandbox = true;

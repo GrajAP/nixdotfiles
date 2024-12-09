@@ -10,6 +10,7 @@
     ./system
   ];
   home-manager = {
+    backupFileExtension = "backup";
     extraSpecialArgs = {inherit inputs;};
     users.grajap = {
       imports = [./home];
