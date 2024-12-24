@@ -19,7 +19,6 @@
       noto-fonts-cjk-sans
       noto-fonts-emoji
       jetbrains-mono
-      nerdfonts.fira-code
     ];
 
     enableDefaultPackages = false;
