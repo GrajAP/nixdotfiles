@@ -113,7 +113,6 @@
         spacing = 7;
         modules-left = [
           "hyprland/workspaces"
-          "backlight"
           "battery"
         ];
         modules-center = [];
