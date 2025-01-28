@@ -20,7 +20,9 @@ in {
     neofetch
     texlive
     neovim
+    gcc
     killall
+    nodejs
     git
     zoxide
     wget

@@ -13,7 +13,6 @@
     calcurse
     pulseaudio
     signal-desktop
-    transmission_3-gtk
     gimp
     wireshark
     dconf
