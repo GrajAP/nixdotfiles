@@ -1,10 +1,10 @@
 {...}: {
   imports = [
-    ./system.nix
+    #   ./system.nix
     ./schizo.nix
     ./network.nix
     ./nix.nix
     ./users.nix
-    ./bootloader.nix
+    #   ./bootloader.nix
   ];
 }

@@ -15,7 +15,11 @@
   '';
   inherit (lib) mkDefault;
 in {
-  imports = [./hardware-configuration.nix];
+  imports = [
+    ./hardware-configuration.nix
+    ./system.nix
+    ./bootloader.nix
+  ];
   environment.systemPackages = with pkgs; [
     acpi
     powertop
