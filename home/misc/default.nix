@@ -1,7 +1,7 @@
 {...}: {
   imports = [
     ./media.nix
-    ./schizofox.nix
+    ./browser.nix
     ./rnnoise.nix
     #    ./lock.nix
   ];

@@ -4,7 +4,6 @@
     udev
     vlc
     wlogout
-    firefox
     caprine-bin
     python3
     libreoffice-fresh
