@@ -3,9 +3,7 @@
   theme,
   lib,
   ...
-}: let
-  pointer = config.home.pointerCursor;
-in {
+}:{
   wayland.windowManager.hyprland = with theme.colors; {
     settings = {
       exec-once = [

@@ -1,4 +1,4 @@
-{pkgs, ...}: let
+{ ...}: let
   browser = ["firefox.desktop"];
 
   associations = {
