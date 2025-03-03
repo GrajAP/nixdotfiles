@@ -30,7 +30,7 @@
         kb_layout = "pl";
         kb_options = "caps:escape";
         follow_mouse = 1;
-        sensitivity = -1.0;
+        sensitivity = 1.0; #DELL (was -1.0)
       };
 
       general = {

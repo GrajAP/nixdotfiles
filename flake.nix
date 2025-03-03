@@ -4,16 +4,17 @@
     nixosConfigurations.grajap = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
-        ./configuration.nix
+        ./grajap.nix
         inputs.home-manager.nixosModules.default
         inputs.stylix.nixosModules.stylix
       ];
     };
     nixosConfigurations.dellap = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
+
       modules = [
         (import ./disko.nix {device = "/dev/sda";})
-        ./configuration.nix
+        ./dellap.nix
         inputs.disko.nixosModules.default
         inputs.stylix.nixosModules.stylix
         inputs.home-manager.nixosModules.default
