@@ -2,8 +2,7 @@
   imports = [
     ./tofi
     ./foot.nix
-    #   ./dunst.nix
-    ./gtk.nix
+    ./dunst.nix
     ./hyprland
     ./waybar
   ];

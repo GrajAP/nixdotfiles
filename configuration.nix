@@ -2,12 +2,11 @@
   imports = [
     ./hosts/dellap
     ./system
+    ./theme
   ];
   home-manager = {
+    #backupFileExtension = "backup";
     extraSpecialArgs = {inherit inputs;};
-    users.grajap = {
-      imports = [./home];
-      _module.args.theme = import ./theme;
-    };
+    users.grajap.imports = [./home];
   };
 }

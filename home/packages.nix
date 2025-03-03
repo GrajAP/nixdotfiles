@@ -1,20 +1,16 @@
 {pkgs, ...}: {
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
-    vscode
+    github-desktop
+    brave
+    #google-chrome
     udev
     vlc
-    wlogout
     caprine-bin
-    python3
+    nemo
     libreoffice-fresh
-    tdesktop
-    webcord
     calcurse
-    pulseaudio
+    spotify-player
     signal-desktop
-    gimp
-    wireshark
-    dconf
   ];
 }

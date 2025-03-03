@@ -1,6 +1,6 @@
 {
   pkgs,
-  theme,
+  config,
   ...
 }: let
   tofi-emoji = pkgs.writeShellScriptBin "tofi-emoji" ''
@@ -9,7 +9,7 @@
   '';
 in {
   home.packages = [pkgs.tofi tofi-emoji];
-  xdg.configFile."tofi/config".text = with theme.colors; ''
+  xdg.configFile."tofi/config".text = ''
     anchor = center
     width = 500
     height = 300
@@ -19,12 +19,12 @@ in {
     font = monospace
     ascii-input = false
     outline-width = 5
-    outline-color = #${surface0}
     border-width = 2
-    border-color = #${accent}
-    background-color = #${base}
-    text-color = #${text}
-    selection-color = #${accent}
+    outline-color = ${config.lib.stylix.colors.withHashtag.base02}
+    border-color = ${config.lib.stylix.colors.withHashtag.base0E}
+    background-color = ${config.lib.stylix.colors.withHashtag.base00}
+    text-color = ${config.lib.stylix.colors.withHashtag.base05}
+    selection-color = ${config.lib.stylix.colors.withHashtag.base0E}
     min-input-width = 120
     late-keyboard-init = true
     result-spacing = 10

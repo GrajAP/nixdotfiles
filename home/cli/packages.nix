@@ -11,23 +11,21 @@
       beamer
       ;
   };
-  pandoc-watch = pkgs.writeScriptBin "wpandoc" ''
-    #!/bin/sh
-    while inotifywait -e close_write $1; do pandoc $@; done
-  '';
 in {
   home.packages = with pkgs; [
-    neofetch
+    fastfetch
+    ollama
     texlive
-    neovim
+    python3
     gcc
-    killall
     nodejs
-    git
+    lsix
+    rustup
+    neovim
+    neovide
+    killall
     zoxide
     wget
-    pandoc-watch
-    pandoc
     # Tbh should be preinstalled
     gnumake
     # Runs programs without installing them
@@ -50,6 +48,7 @@ in {
 
     # download from yt and other websites
     yt-dlp
+    catimg
 
     # man pages for tiktok attention span mfs
     tealdeer
@@ -61,13 +60,10 @@ in {
     hyperfine
 
     # gimp for acoustic people
-    imagemagick
+    krita
 
     # premiere pro for acoustic people
     ffmpeg-full
-
-    # preview images in terminal
-    catimg
 
     # networking stuff
     nmap

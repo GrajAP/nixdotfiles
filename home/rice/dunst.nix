@@ -1,32 +1,15 @@
-{
-  pkgs,
-  theme,
-  ...
-}: let
-  inherit (theme) x;
-in {
+{pkgs, ...}: {
   services.dunst = {
     enable = true;
-    package = pkgs.dunst.overrideAttrs (_: {
-      src = pkgs.fetchFromGitHub {
-        owner = "sioodmy";
-        repo = "dunst";
-        rev = "6477864bd870dc74f9cf76bb539ef89051554525";
-        sha256 = "FCoGrYipNOZRvee6Ks5PQB5y2IvN+ptCAfNuLXcD8Sc=";
-      };
-    });
     iconTheme = {
       package = pkgs.catppuccin-papirus-folders;
       name = "Papirus";
     };
-    settings = with theme.colors; {
+    settings = {
       global = {
-        frame_color = "#${mauve}95";
-        separator_color = x mauve;
         width = 220;
-        height = 280;
-        offset = "0x15";
-        font = "Lexend 12";
+        height = "(0 ,280)";
+        offset = "(0,15)";
         corner_radius = 10;
         origin = "top-center";
         notification_limit = 3;
@@ -44,23 +27,23 @@ in {
         transparency = 10;
         progress_bar = true;
         progress_bar_frame_width = 0;
-        highlight = x pink;
+        #       highlight = x pink;
       };
       fullscreen_delay_everything.fullscreen = "delay";
       urgency_low = {
-        background = "#${base}83";
-        foreground = x text;
+        #       background = "#${base}83";
+        #       foreground = x text;
         timeout = 5;
       };
       urgency_normal = {
-        background = "#${base}83";
-        foreground = "#c6d0f5";
+        #       background = "#${base}83";
+        #       foreground = "#c6d0f5";
         timeout = 6;
       };
       urgency_critical = {
-        background = "#${base}83";
-        foreground = x text;
-        frame_color = "#${red}80";
+        #       background = "#${base}83";
+        #foreground = x text;
+        #       frame_color = "#${red}80";
         timeout = 0;
       };
     };

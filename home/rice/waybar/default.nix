@@ -1,105 +1,20 @@
-{
-  pkgs,
-  theme,
-  ...
-}: {
+{pkgs, ...}: let
+  wttr = pkgs.stdenv.mkDerivation {
+    name = "wttr";
+    propagatedBuildInputs = [
+      (pkgs.python3.withPackages (pythonPackages:
+        with pythonPackages; [
+          consul
+          six
+          requests
+        ]))
+    ];
+    dontUnpack = true;
+    installPhase = "install -Dm755 ${./wttr.py} $out/wttr";
+  };
+in {
   programs.waybar = {
     enable = true;
-    style = with theme.colors; ''
-      * {
-        /* `otf-font-awesome` is required to be installed for icons */
-        font-family: Material Design Icons, Iosevka Nerd Font;
-      }
-
-      window#waybar {
-        background-color: #${base};
-        border-radius: 0px;
-        color: #${accent};
-        font-size: 20px;
-        /* transition-property: background-color; */
-        transition-duration: 0.5s;
-      }
-
-      window#waybar.hidden {
-        opacity: 0.2;
-      }
-
-      #workspaces {
-        font-size: 15px;
-        background-color: #${surface0};
-      }
-
-      #pulseaudio {
-        color: #${accent};
-      }
-      #network {
-        color: #${accent};
-      }
-
-      #workspaces button {
-        background-color: transparent;
-        color: #${blue};
-        /* Use box-shadow instead of border so the text isn't offset */
-        box-shadow: inset 0 -3px transparent;
-      }
-
-      /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-      #workspaces button:hover {
-        color: #${sapphire};
-      }
-
-      #workspaces button.active {
-        color: #${accent};
-      }
-
-      #workspaces button.urgent {
-        background-color: #${red};
-      }
-
-      #clock,
-      #network,
-      #battery,
-      #backlight,
-      #workspaces,
-      #pulseaudio {
-        border-radius: 15px;
-        margin: 0px 7px 0px 7px;
-        background-color: #${surface0};
-        padding: 10px 0px 10px 0px;
-      }
-      #clock {
-        font-weight: 700;
-        font-size: 20px;
-        padding: 5px 0px 5px 0px;
-        font-family: "Iosevka Term";
-      }
-      #backlight {
-        padding-right: 2px;
-        color: #${accent};
-      }
-      #battery {
-        color: #${accent};
-      }
-
-      #battery.warning {
-        color: #${peach};
-      }
-
-      #battery.critical:not(.charging) {
-        color: #${red};
-      }
-      tooltip {
-        font-family: 'Lato', sans-serif;
-        border-radius: 15px;
-        padding: 20px;
-        margin: 30px;
-        color: #${accent}
-      }
-      tooltip label {
-        font-family: 'Lato', sans-serif;
-        padding: 20px;
-      }
-    '';
     systemd = {
       enable = true;
       target = "hyprland-session.target";
@@ -112,9 +27,8 @@
         spacing = 7;
         modules-left = [
           "hyprland/workspaces"
-          "battery"
         ];
-        modules-center = [];
+        modules-center = ["custom/weather"];
         modules-right = ["pulseaudio" "network" "clock"];
         "hyprland/workspaces" = {
           on-click = "activate";
@@ -137,20 +51,12 @@
             "*" = 0;
           };
         };
-        "custom/search" = {
-          format = " ";
-          tooltip = false;
-          on-click = "${pkgs.tofi}/bin/tofi-drun";
-        };
-        "custom/lock" = {
-          tooltip = false;
-          on-click = "sh -c '(sleep 0.5s; hyprlock)' & disown";
-          format = "";
-        };
-        "custom/power" = {
-          tooltip = false;
-          on-click = "wlogout &";
-          format = "";
+        "custom/weather" = {
+          format = "{}";
+          tooltip = true;
+          interval = 3600;
+          exec = "${wttr}/wttr";
+          return-type = "json";
         };
         clock = {
           format = ''
@@ -165,22 +71,12 @@
           format = "{icon}";
           format-icons = ["" "" "" "" "" "" "" "" ""];
         };
-        battery = {
-          states = {
-            warning = 30;
-            critical = 15;
-          };
-          format = "{icon}";
-          format-charging = "{icon}\n󰚥";
-          tooltip-format = "{timeTo} {capacity}% 󱐋{power}";
-          format-icons = ["󰂃" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
-        };
         network = {
-          format-wifi = "󰤨";
-          format-ethernet = "󰤨";
-          format-alt = "󰤨";
+          format-wifi = "󰤨 essid";
+          format-ethernet = "󰈀";
           format-disconnected = "󰤭";
           tooltip-format = "{ipaddr}/{ifname} via {gwaddr} ({signalStrength}%)";
+          on-click = "pkill -f nm-connection-editor || ${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
         };
         pulseaudio = {
           scroll-step = 5;

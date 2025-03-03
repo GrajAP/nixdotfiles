@@ -1,34 +1,39 @@
 {
-  x = c: "#${c}";
-  colors = rec {
-    rosewater = "f5e0dc";
-    flamingo = "f2cdcd";
-    pink = "f5c2e7";
-    mauve = "cba6f7";
-    red = "f38ba8";
-    maroon = "eba0ac";
-    peach = "fab387";
-    yellow = "f9e2af";
-    green = "a6e3a1";
-    teal = "94e2d5";
-    sky = "89dceb";
-    sapphire = "74c7ec";
-    blue = "89b4fa";
-    lavender = "b4befe";
-    text = "cdd6f4";
-    subtext1 = "bac2de";
-    subtext0 = "a6adc8";
-    overlay2 = "9399b2";
-    overlay1 = "7f849c";
-    overlay0 = "6c7086";
-    surface2 = "585b70";
-    surface1 = "45475a";
-    surface0 = "313244";
-    base = "1e1e2e";
-    mantle = "181825";
-    crust = "11111b";
-
-    accent = pink;
+  pkgs,
+  lib,
+  ...
+}: let
+  wall = ./wall.png;
+  mkService = lib.recursiveUpdate {
+    Unit.PartOf = ["graphical-session.target"];
+    Unit.After = ["graphical-session.target"];
+    Install.WantedBy = ["graphical-session.target"];
   };
-  wallpaper = ./wall.png;
+in {
+  home-manager.users.grajap.systemd.user.services = {
+    swaybg = mkService {
+      Unit.Description = "Wallpaper chooser";
+      Service = {
+        ExecStart = "${lib.getExe pkgs.swaybg} -i ${wall}";
+        Restart = "always";
+      };
+    };
+  };
+  stylix = {
+    enable = true;
+    autoEnable = true;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+    polarity = "dark"; # "light" or "either
+    targets.spicetify.enable = false;
+    cursor.package = pkgs.catppuccin-cursors.mochaMauve;
+    cursor.name = "Catppuccin-Mocha-Dark-Cursors";
+    cursor.size = 24;
+    image = wall;
+    opacity = {
+      applications = 1.0;
+      terminal = 0.8;
+      desktop = 1.0;
+      popups = 0.8;
+    };
+  };
 }

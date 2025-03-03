@@ -1,13 +1,4 @@
-{
-  pkgs,
-  theme,
-  ...
-}: {
-  home.packages = with pkgs; [
-    libsixel
-    foot
-    # for displaying images
-  ];
+{...}: {
   programs.foot = {
     enable = true;
     server.enable = false;
@@ -17,13 +8,13 @@
         title = "foot";
         locked-title = "no";
         term = "xterm-256color";
-        font = "monospace:size=10.5";
+        #font = "monospace:size=10.5";
         vertical-letter-offset = "-0.75";
         pad = "12x21 center";
         resize-delay-ms = 100;
         selection-target = "primary";
         # box-drawings-uses-font-glyphs = "yes";
-        dpi-aware = "yes";
+        #dpi-aware = "yes";
         bold-text-in-bright = "no";
         word-delimiters = ",│`|:\"'()[]{}<>";
       };
@@ -50,29 +41,29 @@
 
         uri-characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_.,~:;/?#@!$&%*+=\"'()[]";
       };
-      colors = with theme.colors; {
-        alpha = "0.75";
-        foreground = text;
-        background = base;
+      #     colors = with theme.colors; {
+      #       alpha = "0.75";
+      #       foreground = text;
+      #       background = base;
 
-        regular0 = surface1;
-        regular1 = red;
-        regular2 = green;
-        regular3 = yellow;
-        regular4 = blue;
-        regular5 = pink;
-        regular6 = teal;
-        regular7 = subtext1;
+      #       regular0 = surface1;
+      #       regular1 = red;
+      #       regular2 = green;
+      #       regular3 = yellow;
+      #       regular4 = blue;
+      #       regular5 = pink;
+      #       regular6 = teal;
+      #       regular7 = subtext1;
 
-        bright0 = surface2;
-        bright1 = red;
-        bright2 = green;
-        bright3 = yellow;
-        bright4 = blue;
-        bright5 = pink;
-        bright6 = teal;
-        bright7 = subtext0;
-      };
+      #       bright0 = surface2;
+      #       bright1 = red;
+      #       bright2 = green;
+      #       bright3 = yellow;
+      #       bright4 = blue;
+      #       bright5 = pink;
+      #       bright6 = teal;
+      #       bright7 = subtext0;
+      #     };
       mouse = {
         hide-when-typing = "yes";
       };
@@ -81,7 +72,7 @@
         unicode-input = "Control+Shift+i";
       };
       search-bindings = {
-        cursor-home = " Home Control+A";
+        cursor-home = "Control+A";
       };
       mouse-bindings = {
         selection-override-modifiers = "Shift";

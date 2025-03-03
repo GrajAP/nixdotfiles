@@ -1,21 +1,19 @@
 {
   config,
-  theme,
   lib,
   ...
 }: {
-  wayland.windowManager.hyprland = with theme.colors; {
+  wayland.windowManager.hyprland = {
     settings = {
       exec-once = [
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-        "pamixer -m"
         "brightnessctl set 100%"
-        # set cursor for HL itself
-        "hyprctl setcursor Catppuccin-Mauve 24"
-        #"swaybg -i ${theme.wallpaper}"
-
+        "firefox"
+        "caprine"
+        "vesktop"
+        "foot"
         # foot terminal server
-        "${lib.optionalString config.programs.foot.server.enable ''run-as-service 'foot --server''}"
+        "${lib.optionalString config.programs.foot.server.enable ''foot --server''}"
       ];
 
       gestures = {
@@ -32,12 +30,7 @@
         kb_layout = "pl";
         kb_options = "caps:escape";
         follow_mouse = 1;
-        sensitivity = 0.0;
-        touchpad = {
-          clickfinger_behavior = true;
-          tap-to-click = false;
-          scroll_factor = 0.5;
-        };
+        sensitivity = -1.0;
       };
 
       general = {
@@ -48,9 +41,9 @@
         # border thiccness
         border_size = 2;
 
-        # active border color
-        "col.active_border" = "rgb(${accent})";
-        "col.inactive_border" = "rgb(${surface0})";
+        "col.active_border" = lib.mkForce "rgb(${config.lib.stylix.colors.base0E})";
+        #"col.active_border" = lib.mkForce "rgb(${accent})";
+        #"col.inactive_border" = "rgb(${surface0})";
       };
 
       decoration = {

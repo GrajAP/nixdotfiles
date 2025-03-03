@@ -1,7 +1,8 @@
 {...}: {
   imports = [
+    #   ./discord.nix
     ./media.nix
-    ./browser.nix
+    ./firefox.nix
     ./rnnoise.nix
     ./lock.nix
   ];

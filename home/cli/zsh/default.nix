@@ -5,10 +5,7 @@
   ...
 }: {
   home.sessionVariables.STARSHIP_CACHE = "${config.xdg.cacheHome}/starship";
-  programs.zoxide = {
-    enable = true;
-    enableZshIntegration = true;
-  };
+  imports = [./tools.nix];
   programs.zsh = {
     enable = true;
     autosuggestion.enable = true;

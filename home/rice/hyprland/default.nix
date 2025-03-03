@@ -1,17 +1,8 @@
 {
   pkgs,
-  lib,
   inputs,
-  theme,
   ...
-}:
-with lib; let
-  mkService = lib.recursiveUpdate {
-    Unit.PartOf = ["graphical-session.target"];
-    Unit.After = ["graphical-session.target"];
-    Install.WantedBy = ["graphical-session.target"];
-  };
-in {
+}: {
   imports = [./config.nix ./binds.nix ./rules.nix];
   home.packages = with pkgs;
   with inputs.hyprcontrib.packages.${pkgs.system}; [
@@ -19,6 +10,7 @@ in {
     libnotify
     swaybg
     wireplumber
+    nwg-look
     wf-recorder
     brightnessctl
     pamixer
@@ -27,6 +19,9 @@ in {
     grim
     swappy
     grimblast
+    catppuccin-cursors
+    catppuccin-qt5ct
+    catppuccin-fcitx5
     hyprpicker
     wl-clip-persist
     wl-clipboard
@@ -70,16 +65,15 @@ in {
       ];
     };
   };
-
   services = {
     wlsunset = {
       # TODO: fix opaque red screen issue
       enable = true;
-      latitude = "52.0";
-      longitude = "21.0";
+      latitude = "52";
+      longitude = "21";
       temperature = {
         day = 6200;
-        night = 3750;
+        night = 3500;
       };
       systemdTarget = "hyprland-session.target";
     };
@@ -90,16 +84,6 @@ in {
     Unit = {
       Description = "Home Manager System Tray";
       Requires = ["graphical-session-pre.target"];
-    };
-  };
-
-  systemd.user.services = {
-    swaybg = mkService {
-      Unit.Description = "Wallpaper chooser";
-      Service = {
-        ExecStart = "${lib.getExe pkgs.swaybg} -i ${theme.wallpaper}";
-        Restart = "always";
-      };
     };
   };
 }

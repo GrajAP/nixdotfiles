@@ -3,12 +3,12 @@
     udiskie.enable = true;
     gpg-agent = {
       enable = true;
-      pinentryFlavor = "gnome3";
       enableSshSupport = true;
       enableZshIntegration = true;
     };
   };
   programs = {
+    thefuck.enable = true;
     gpg.enable = true;
     man.enable = true;
     eza.enable = true;
@@ -25,6 +25,10 @@
         "--preview 'eza --icons --git --color always -T -L 3 {} | head -200'"
         "--exact"
       ];
+    };
+    zoxide = {
+      enable = true;
+      enableZshIntegration = true;
     };
     direnv = {
       enable = true;
@@ -46,7 +50,6 @@
       enable = true;
       config = {
         pager = "less -FR";
-        theme = "catppuccin-mocha";
       };
       themes = {
         catppuccin-mocha = {

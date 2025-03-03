@@ -1,11 +1,11 @@
 {...}: {
   imports = [
     ./zsh
-    ./starship.nix
+    #./nvim
     ./neovide.nix
+    ./starship.nix
     ./bottom.nix
     ./git.nix
-    ./run-as-service.nix
     ./packages.nix
     ./xdg.nix
   ];
