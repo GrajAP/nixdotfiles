@@ -1,5 +1,5 @@
 {pkgs, ...}: let
-  browser = ["schizofox.desktop"];
+  browser = ["firefox.desktop"];
 
   associations = {
     "text/html" = browser;
