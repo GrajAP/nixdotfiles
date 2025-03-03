@@ -14,7 +14,18 @@
 
       modules = [
         (import ./disko.nix {device = "/dev/sda";})
-        ./dellap.nix
+        ({inputs, ...}: {
+          imports = [
+            ./hosts/dellap
+            ./system
+            ./theme
+          ];
+          home-manager = {
+            #backupFileExtension = "backup";
+            extraSpecialArgs = {inherit inputs;};
+            users.grajap.imports = [./home];
+          };
+        })
         inputs.disko.nixosModules.default
         inputs.stylix.nixosModules.stylix
         inputs.home-manager.nixosModules.default
