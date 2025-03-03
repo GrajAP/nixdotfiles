@@ -10,12 +10,10 @@
     openFirewall = true;
   };
   users = {
-    mutableUsers = false;
+    mutableUsers = true;
     users = {
-      root.hashedPasswordFile = "/secrets/user";
       grajap = {
         isNormalUser = true;
-        hashedPasswordFile = "/secrets/user";
         extraGroups = [
           "wheel"
           "gitea"

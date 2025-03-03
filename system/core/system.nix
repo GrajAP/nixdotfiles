@@ -47,7 +47,6 @@
     timeZone = "Europe/Warsaw";
     hardwareClockInLocalTime = true;
   };
-  hardware.ledger.enable = true;
 
   i18n = let
     defaultLocale = "en_US.UTF-8";

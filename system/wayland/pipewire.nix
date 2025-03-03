@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{...}: {
   hardware.enableAllFirmware = true;
   services = {
     pipewire = {

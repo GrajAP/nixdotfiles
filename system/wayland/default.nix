@@ -6,9 +6,8 @@
 
   environment = {
     variables = {
-      #     NIXOS_OZONE_WL = "1";
-      __GL_GSYNC_ALLOWED = "0";
-      __GL_VRR_ALLOWED = "0";
+      __GL_GSYNC_ALLOWED = "1";
+      __GL_VRR_ALLOWED = "1";
       _JAVA_AWT_WM_NONEREPARENTING = "1";
       SSH_AUTH_SOCK = "/run/user/1000/keyring/ssh";
       DISABLE_QT5_COMPAT = "0";
@@ -33,9 +32,10 @@
   xdg.portal = {
     enable = true;
     config.common.default = "*";
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-hyprland
+    extraPortals = with pkgs; [
+      kdePackages.xdg-desktop-portal-kde
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-hyprland
     ];
   };
 }
