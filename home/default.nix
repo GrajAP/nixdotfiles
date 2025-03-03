@@ -9,9 +9,6 @@
   config.home.extraOutputsToInstall = ["doc" "devdoc"];
   imports = [
     inputs.nix-index-db.hmModules.nix-index
-    inputs.barbie.homeManagerModule
-    inputs.nix-colors.homeManagerModule
-    inputs.schizofox.homeManagerModule
     ./packages.nix
 
     ./cli
