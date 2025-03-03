@@ -3,7 +3,7 @@
   theme,
   lib,
   ...
-}:{
+}: {
   wayland.windowManager.hyprland = with theme.colors; {
     settings = {
       exec-once = [

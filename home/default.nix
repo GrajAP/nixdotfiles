@@ -1,7 +1,4 @@
-{
-  inputs,
-  ...
-}:
+{inputs, ...}:
 # glue all configs together
 {
   config.home.stateVersion = "24.05";

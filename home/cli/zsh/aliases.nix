@@ -11,6 +11,7 @@ with pkgs; {
   cat = "${getExe bat} --style=plain";
   uuid = "cat /proc/sys/kernel/random/uuid";
   grep = getExe ripgrep;
+  nvim = "neovide";
   wget = "wget --hsts-file=\"${config.xdg.dataHome}/wget-hsts\"";
   fzf = getExe skim;
   untar = "tar -xvf";
