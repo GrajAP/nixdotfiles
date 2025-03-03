@@ -1,10 +1,7 @@
 {
-  config,
   pkgs,
-  cfg,
   lib,
   inputs,
-  inputs',
   ...
 }: {
   environment = {
@@ -16,12 +13,15 @@
     };
 
     systemPackages = with pkgs; [
-      git
+      nh
+      nixd
       deadnix
       alejandra
+      nvd
       statix
+      glib
+      libglibutil
       nix-output-monitor
-      inputs.agenix.packages."${system}".default
     ];
     defaultPackages = [];
   };
@@ -32,11 +32,8 @@
       # Wolności oddać nie umiem
       # <3333
       allowUnfree = true;
+      allowUnsupportedSystem = true;
       allowBroken = true;
-      permittedInsecurePackages = [
-        "openssl-1.1.1u"
-        "electron-25.9.0"
-      ];
 
       overlays = [
         # workaround for: https://github.com/NixOS/nixpkgs/issues/154163
@@ -61,11 +58,8 @@
   };
 
   nix = {
-    gc = {
-      automatic = true;
-      dates = "daily";
-      options = "--delete-older-than 3d";
-    };
+    gc.automatic = false;
+    package = pkgs.lix;
 
     # Make builds run with low priority so my system stays responsive
     daemonCPUSchedPolicy = "idle";
@@ -76,7 +70,8 @@
 
     # This will additionally add your inputs to the system's legacy channels
     # Making legacy nix commands consistent as well, awesome!
-    nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
+    #nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
+    nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
     # Free up to 1GiB whenever there is less than 100MiB left.
     extraOptions = ''
@@ -99,7 +94,7 @@
       max-jobs = "auto";
       # continue building derivations if one fails
       keep-going = true;
-      log-lines = 20;
+      log-lines = 40;
       extra-experimental-features = ["flakes" "nix-command" "recursive-nix" "ca-derivations"];
 
       # use binary cache, its not gentoo
@@ -116,6 +111,21 @@
       ];
     };
   };
-  system.autoUpgrade.enable = true;
-  system.stateVersion = "24.11"; # DONT TOUCH THIS
-}
+  system = {
+    switch = {
+      enable = false;
+      enableNg = true;
+    };
+    autoUpgrade = {
+      enable = false;
+      flake = inputs.self.outPath;
+      flags = [
+        "nixpkgs"
+        "-L"
+      ];
+      dates = "09:00";
+      randomizedDelaySec = "45min";
+    };
+    stateVersion = "24.11"; # DONT TOUCH THIS
+  };
+}{
