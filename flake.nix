@@ -54,7 +54,7 @@
   };
 
   outputs = {nixpkgs, ...} @ inputs: {
-    nixosConfigurations.default = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.dellap = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
         inputs.disko.nixosModules.default
