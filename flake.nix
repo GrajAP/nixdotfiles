@@ -4,7 +4,8 @@
     nixosConfigurations.grajap = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
-        ./grajap.nix
+        (import ./hosts/grajap)
+        ./configuration.nix
         inputs.home-manager.nixosModules.default
         inputs.stylix.nixosModules.stylix
       ];
@@ -14,18 +15,8 @@
 
       modules = [
         (import ./disko.nix {device = "/dev/sda";})
-        ({inputs, ...}: {
-          imports = [
-            ./hosts/dellap
-            ./system
-            ./theme
-          ];
-          home-manager = {
-            #backupFileExtension = "backup";
-            extraSpecialArgs = {inherit inputs;};
-            users.grajap.imports = [./home];
-          };
-        })
+        (import ./hosts/dellap)
+        ./configuration.nix
         inputs.disko.nixosModules.default
         inputs.stylix.nixosModules.stylix
         inputs.home-manager.nixosModules.default
