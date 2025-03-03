@@ -15,14 +15,14 @@
         (import ./disko.nix {device = "/dev/sda";})
         ./configuration.nix
         inputs.disko.nixosModules.default
-        #       inputs.stylix.nixosModules.stylix
+        inputs.stylix.nixosModules.stylix
         inputs.home-manager.nixosModules.default
       ];
     };
   };
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    #stylix.url = "github:danth/stylix";
+    stylix.url = "github:danth/stylix";
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";

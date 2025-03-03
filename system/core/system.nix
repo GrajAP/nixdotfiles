@@ -32,7 +32,7 @@
 
   environment.variables = {
     EDITOR = "nvim";
-    BROWSER = "schizofox";
+    BROWSER = "firefox";
   };
   environment.systemPackages = with pkgs; [
     git
