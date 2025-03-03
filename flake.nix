@@ -15,7 +15,6 @@
         (import ./disko.nix {device = "/dev/sda";})
         ./configuration.nix
         inputs.disko.nixosModules.default
-        inputs.stylix.nixosModules.stylix
         inputs.home-manager.nixosModules.default
       ];
     };

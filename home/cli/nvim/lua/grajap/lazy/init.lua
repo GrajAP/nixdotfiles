@@ -1,9 +1,5 @@
 return {
-
-    {
-        "nvim-lua/plenary.nvim",
-        name = "plenary"
-    },
+    "slint-ui/vim-slint",
     "ThePrimeagen/harpoon",
     "github/copilot.vim",
     "eandrju/cellular-automaton.nvim",

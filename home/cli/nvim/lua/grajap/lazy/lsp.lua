@@ -2,6 +2,7 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
         "williamboman/mason.nvim",
+        'simrat39/rust-tools.nvim',
         "williamboman/mason-lspconfig.nvim",
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-buffer",
@@ -21,14 +22,34 @@ return {
             {},
             vim.lsp.protocol.make_client_capabilities(),
             cmp_lsp.default_capabilities())
-
+        require("lspconfig").slint_lsp.setup({})
         require("fidget").setup({})
         require("mason").setup()
+        require("lspconfig").nixd.setup({
+  cmd = { "nixd" },
+  settings = {
+    nixd = {
+      nixpkgs = {
+        expr = "import <nixpkgs> { }",
+      },
+      formatting = {
+        command = { "alejandra" }, -- or nixfmt or nixpkgs-fmt
+      },
+       options = {
+         nixos = {
+             expr = '(builtins.getFlake "/etc/nixos/").nixosConfigurations.grajap.options',
+         },
+         home_manager = {
+             expr = '(builtins.getFlake "/etc/nixos/").homeConfigurations.grajap.options',
+         },
+       },
+    },
+  },
+})
         require("mason-lspconfig").setup({
             ensure_installed = {
                 "lua_ls",
                 "rust_analyzer",
-                "tsserver",
             },
             handlers = {
                 function(server_name) -- default handler (optional)
@@ -73,7 +94,20 @@ return {
                 { name = 'luasnip' }, -- For luasnip users.
             }, {
                 { name = 'buffer' },
-            })
+            }),
+            formatting = {
+      fields = {'menu', 'abbr', 'kind'},
+      format = function(entry, item)
+          local menu_icon ={
+              nvim_lsp = 'λ',
+              vsnip = '⋗',
+              buffer = 'Ω',
+              path = '🖫',
+          }
+          item.menu = menu_icon[entry.source.name]
+          return item
+      end,
+  },
         })
 
         vim.diagnostic.config({
