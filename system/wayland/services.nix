@@ -16,7 +16,6 @@
   services = {
     xserver.enable = true;
     openssh.enable = true;
-    mullvad-vpn.enable = true;
     greetd = {
       enable = true;
       settings = rec {
