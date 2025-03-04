@@ -54,7 +54,7 @@ in {
   hardware.trackpoint = {
     enable = true;
     emulateWheel = true;
-    speed = 255;
+    speed = 1000;
     sensitivity = 1000;
   };
 
