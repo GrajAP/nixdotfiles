@@ -1,10 +1,8 @@
 {
   pkgs,
   config,
-  lib,
   ...
 }: let
-  MHz = x: x * 1000;
   mic-light-on = pkgs.writeShellScriptBin "mic-light-on" ''
     #!bin/sh
     echo 1 > /sys/class/leds/platform::micmute/brightness
@@ -13,7 +11,6 @@
     #!bin/sh
     echo 0 > /sys/class/leds/platform::micmute/brightness
   '';
-  inherit (lib) mkDefault;
 in {
   imports = [
     ./hardware-configuration.nix
@@ -30,14 +27,9 @@ in {
   networking.hostName = "dellap"; # Define your hostname.
 
   services = {
+    auto-cpufreq.enable = true;
     fprintd.enable = true;
     thermald.enable = true;
-    undervolt = {
-      enable = true;
-      #coreOffset = -5;
-      #gpuOffset = -30;
-      tempBat = 55;
-    };
     # DBus service that provides power management support to applications.
     upower = {
       enable = true;
@@ -46,25 +38,8 @@ in {
       percentageAction = 3;
       criticalPowerAction = "Hibernate";
     };
-    # superior power management (brought to you by raf :3)
-    auto-cpufreq = {
-      enable = true;
-      settings = {
-        battery = {
-          governor = "powersave";
-          scaling_min_freq = mkDefault (MHz 2000);
-          scaling_max_freq = mkDefault (MHz 2800);
-          turbo = "never";
-        };
-        charger = {
-          governor = "performance";
-          scaling_min_freq = mkDefault (MHz 2500);
-          scaling_max_freq = mkDefault (MHz 3100);
-          turbo = "auto";
-        };
-      };
-    };
   };
+  # superior power management (brought to you by raf :3)
 
   boot = {
     kernelModules = ["acpi_call"];
@@ -80,7 +55,7 @@ in {
     enable = true;
     emulateWheel = true;
     speed = 255;
-    sensitivity = 200;
+    sensitivity = 400;
   };
 
   hardware.bluetooth = {

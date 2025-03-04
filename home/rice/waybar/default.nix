@@ -27,6 +27,7 @@ in {
         spacing = 7;
         modules-left = [
           "hyprland/workspaces"
+          "battery"
         ];
         modules-center = ["custom/weather"];
         modules-right = ["pulseaudio" "network" "clock"];
