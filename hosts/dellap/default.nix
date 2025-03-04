@@ -55,7 +55,7 @@ in {
     enable = true;
     emulateWheel = true;
     speed = 255;
-    sensitivity = 400;
+    sensitivity = 1000;
   };
 
   hardware.bluetooth = {

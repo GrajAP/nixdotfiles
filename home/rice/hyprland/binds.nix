@@ -78,19 +78,21 @@ in {
       ",XF86AudioMute, exec, pamixer -t"
       ",XF86AudioMicMute, exec, micmute"
 
+      ",XF86MonBrightnessUp, exec, brightnessctl set 10%+"
+      ",XF86MonBrightnessDown, exec, brightnessctl set 10%-"
+
       "${mod} Control_L, H, resizeactive, -80 0"
       "${mod} Control_L, J, resizeactive, 0 80"
       "${mod} Control_L, K, resizeactive, 0 -80"
       "${mod} Control_L, L, resizeactive, 80 0"
     ];
+
     # binds that are locked, a.k.a will activate even while an input inhibitor is active
     bindl = [
       # media controls
       ",XF86AudioPlay,exec,playerctl play-pause"
       ",XF86AudioPrev,exec,playerctl previous"
       ",XF86AudioNext,exec,playerctl next"
-      ",XF86MonBrightnessUp, exec, brightnessctl s 10%+"
-      ",XF86MonBrightnessDown, exec, brightnessctl s 10%-"
     ];
   };
 }
