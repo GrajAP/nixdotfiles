@@ -4,7 +4,6 @@
   ...
 }: {
   services = {
-    wordpress.sites."localhost" = {};
     ollama = {
       enable = true;
       #acceleration = "rocm";
