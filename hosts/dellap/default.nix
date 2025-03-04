@@ -54,8 +54,8 @@ in {
   hardware.trackpoint = {
     enable = true;
     emulateWheel = true;
-    speed = 1000;
-    sensitivity = 1000;
+    speed = 255;
+    sensitivity = 100;
   };
 
   hardware.bluetooth = {

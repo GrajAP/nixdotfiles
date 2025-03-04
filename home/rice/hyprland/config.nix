@@ -30,7 +30,7 @@
         kb_layout = "pl";
         kb_options = "caps:escape";
         follow_mouse = 1;
-        sensitivity = -1.0;
+        sensitivity = 0.8;
       };
 
       general = {
