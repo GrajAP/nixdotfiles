@@ -12,6 +12,21 @@ in {
     firefox = {
       enable = true;
       languagePacks = ["pl" "en-US"];
+      profiles.default = {
+        search = {
+          force = true;
+          default = "Startpage";
+          engines = {
+            "Startpage" = {
+              urls = [{template = "https://www.startpage.com/rvd/search?query={searchTerms}&language=auto";}];
+              iconUpdateURL = "https://www.startpage.com/sp/cdn/favicons/mobile/android-icon-192x192.png";
+              updateInterval = 24 * 60 * 60 * 1000; # every day
+              definedAliases = ["@s"];
+            };
+          };
+        };
+      };
+
       /*
       ---- POLICIES ----
       */
@@ -35,6 +50,13 @@ in {
         DisplayBookmarksToolbar = "never"; # alternatives: "always" or "newtab"
         DisplayMenuBar = "never"; # alternatives: "always", "never" or "default-on"
         SearchBar = "unified"; # alternative: "separate"
+        SearchEngines = {
+          Default = "Startpage";
+          PreventInstalls = true;
+          Remove = "Google";
+        };
+
+        SearchSuggestEnabled = true;
 
         /*
         ---- EXTENSIONS ----
