@@ -49,6 +49,10 @@ in {
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
             installation_mode = "force_installed";
           };
+          "78272b6fa58f4a1abaac99321d503a20@proton.me" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/proton-pass/latest.xpi";
+            installation_mode = "force_installed";
+          };
           "{d090b7ee-a385-4d54-b9a4-f7164d17756d}" = {
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/catppuccin-mocha-mauve/latest.xpi";
             installation_mode = "force_installed";
