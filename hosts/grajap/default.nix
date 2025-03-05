@@ -13,6 +13,11 @@
 
   networking.hostName = "grajap"; # Define your hostname.
   services = {
+    immich = {
+      enable = true;
+      port = 2283;
+      mediaLocation = "/home/grajap/dev/imich-app/library";
+    };
     ollama = {
       enable = true;
       #acceleration = "rocm";
