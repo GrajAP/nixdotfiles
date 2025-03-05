@@ -5,9 +5,10 @@
 }: let
   inherit (lib) mkDefault;
 in {
-  environment.systemPackages = [
+  environment.systemPackages = with pkgs; [
     # For debugging and troubleshooting Secure Boot.
-    pkgs.sbctl
+    os-prober
+    sbctl
   ];
   boot = {
     binfmt.emulatedSystems = ["aarch64-linux"];
@@ -18,7 +19,7 @@ in {
     # some kernel parameters, i dont remember what half of this shit does but who cares
     consoleLogLevel = mkDefault 0;
     initrd.verbose = false;
-    kernelPackages = mkDefault pkgs.linuxPackages_latest;
+    kernelPackages = mkDefault pkgs.linuxPackages_zen;
     kernelParams = [
       "psmouse.synaptics_intertouch=1"
       "intel_pstate=disable"
@@ -28,13 +29,15 @@ in {
       options snd-intel-dspcfg dsp_driver=1
       options snd_hda_intel enable=1,1 power_save=1 power_save_controller=Y
     '';
-
-    bootspec.enable = mkDefault true;
+    supportedFilesystems = ["ntfs"];
     loader = {
-      systemd-boot.enable = mkDefault true;
-      # spam space to get to boot menu
-      timeout = 0;
+      efi.canTouchEfiVariables = true;
+      grub = {
+        enable = true;
+        device = "nodev";
+        useOSProber = true;
+        efiSupport = true;
+      }; # spam space to get to boot menu
     };
-    loader.efi.canTouchEfiVariables = true;
   };
 }
