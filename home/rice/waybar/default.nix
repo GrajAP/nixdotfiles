@@ -78,9 +78,9 @@ in {
             warning = 30;
             critical = 15;
           };
-          format = "{icon} {capacity}%";
-          format-charging = "󰂄 {capacity}%";
-          format-plugged = "󰂄 {capacity}%";
+          format = "{icon} {capacity}";
+          format-charging = "󰂄 {capacity}";
+          format-plugged = "󰂄 {capacity}";
           format-alt = "{icon}";
           format-icons = ["󰂃" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
         };
@@ -95,7 +95,7 @@ in {
         in {
           format-wifi = "󰤨 ";
           format-ethernet = "󰈀";
-         #format-alt = "󱛇";
+          format-alt = "󱛇";
           format-disconnected = "󰤭";
           tooltip-format = "{ipaddr}/{ifname} via {gwaddr} ({signalStrength}%)";
           on-click-right = "${nm-editor}";
