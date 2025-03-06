@@ -93,9 +93,9 @@ in {
         network = let
           nm-editor = "${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
         in {
-          format-wifi = "󰤨 {essid}";
+          format-wifi = "󰤨 ";
           format-ethernet = "󰈀";
-          format-alt = "󱛇";
+         #format-alt = "󱛇";
           format-disconnected = "󰤭";
           tooltip-format = "{ipaddr}/{ifname} via {gwaddr} ({signalStrength}%)";
           on-click-right = "${nm-editor}";
