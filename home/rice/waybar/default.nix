@@ -28,9 +28,10 @@ in {
         modules-left = [
           "hyprland/workspaces"
           "battery"
+          "backlight"
         ];
         modules-center = ["custom/weather"];
-        modules-right = ["pulseaudio" "network" "clock"];
+        modules-right = ["pulseaudio" "bluetooth" "network" "clock"];
         "hyprland/workspaces" = {
           on-click = "activate";
           format = "{icon}";
@@ -69,15 +70,35 @@ in {
         };
         backlight = {
           tooltip = false;
-          format = "{icon}";
+          format = "{icon} {percent}";
           format-icons = ["" "" "" "" "" "" "" "" ""];
         };
-        network = {
-          format-wifi = "󰤨 essid";
+        battery = {
+          states = {
+            warning = 30;
+            critical = 15;
+          };
+          format = "{icon} {capacity}%";
+          format-charging = "󰂄 {capacity}%";
+          format-plugged = "󰂄 {capacity}%";
+          format-alt = "{icon}";
+          format-icons = ["󰂃" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
+        };
+        bluetooth = {
+          on-click = ''
+            bash -c 'bluetoothctl power $(bluetoothctl show | grep -q "Powered: yes" && echo off || echo on)'
+          '';
+        };
+
+        network = let
+          nm-editor = "${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
+        in {
+          format-wifi = "󰤨 {essid}";
           format-ethernet = "󰈀";
+          format-alt = "󱛇";
           format-disconnected = "󰤭";
           tooltip-format = "{ipaddr}/{ifname} via {gwaddr} ({signalStrength}%)";
-          on-click = "pkill -f nm-connection-editor || ${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
+          on-click-right = "${nm-editor}";
         };
         pulseaudio = {
           scroll-step = 5;
