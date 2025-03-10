@@ -96,6 +96,7 @@ in {
     hashcat
 
     unzip
+    zip
     # tshark
     # termshark
   ];
