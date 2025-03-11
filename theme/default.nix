@@ -25,10 +25,15 @@ in {
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     #base16Scheme = "${pkgs.base16-schemes}/share/themes/dracula.yaml";
     polarity = "dark"; # "light" or "either
-    targets.spicetify.enable = false;
-    cursor.package = pkgs.catppuccin-cursors.mochaMauve;
-    cursor.name = "Catppuccin-Mocha-Dark-Cursors";
-    cursor.size = 24;
+    targets = {
+      spicetify.enable = false;
+      firefox.profileNames = "default";
+    };
+    cursor = {
+      package = pkgs.catppuccin-cursors.mochaMauve;
+      name = "Catppuccin-Mocha-Dark-Cursors";
+      size = 24;
+    };
     image = wall;
     opacity = {
       applications = 1.0;
