@@ -27,7 +27,13 @@ in {
     polarity = "dark"; # "light" or "either
     targets = {
       spicetify.enable = false;
-      firefox.profileNames = "default";
+      #firefox.profileNames = ["default"];
+      #    firefox = {
+      #      enable = true;
+      #      colorTheme.enable = true;
+      #      firefoxGnomeTheme.enable = true;
+      #      profileNames = ["default" "grajap" "grajpap"];
+      #    };
     };
     cursor = {
       package = pkgs.catppuccin-cursors.mochaMauve;
