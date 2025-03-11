@@ -4,7 +4,7 @@
   ...
 }: {
   services = {
-    wordpress.sites."localhost" = {};
+    #wordpress.sites."localhost" = {};
     dbus = {
       packages = with pkgs; [dconf gcr udisks2];
       enable = true;
