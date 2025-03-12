@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
+    electron
     vscode
     github-desktop
     brave
