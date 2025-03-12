@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
-    wine
     electron
     vscode
     github-desktop

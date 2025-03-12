@@ -20,6 +20,7 @@ in {
     powertop
     mic-light-on
     mic-light-off
+    quickemu
   ];
 
   networking.hostName = "dellap"; # Define your hostname.
