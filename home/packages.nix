@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
+    ungoogled-chromium
     electron
     vscode
     github-desktop
