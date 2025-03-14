@@ -19,6 +19,7 @@ in {
     python3
     gcc
     nodejs
+    nodePackages."@angular/cli"
     lsix
     rustup
     neovim
