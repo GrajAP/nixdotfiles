@@ -19,7 +19,7 @@ in {
           engines = {
             "Startpage" = {
               urls = [{template = "https://www.startpage.com/rvd/search?query={searchTerms}&language=auto";}];
-              iconUpdateURL = "https://www.startpage.com/sp/cdn/favicons/mobile/android-icon-192x192.png";
+              icon = "https://www.startpage.com/sp/cdn/favicons/mobile/android-icon-192x192.png";
               updateInterval = 24 * 60 * 60 * 1000; # every day
               definedAliases = ["@s"];
             };
