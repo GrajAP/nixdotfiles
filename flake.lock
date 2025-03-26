@@ -361,11 +361,19 @@
         ]
       },
       "locked": {
+<<<<<<< HEAD
         "lastModified": 1742213523,
         "narHash": "sha256-I8JVdQRu8eWvY5W8XWYZkdd5pojDHkxeqQV7mMIsbhs=",
         "owner": "hyprwm",
         "repo": "contrib",
         "rev": "bd81329944be53b0ffb99e05864804b95f1d7c65",
+=======
+        "lastModified": 1741681240,
+        "narHash": "sha256-SJrLVyoaQUg29fq3nNdRmYrLgiu9dtgcIVqpl8j/Teo=",
+        "owner": "hyprwm",
+        "repo": "contrib",
+        "rev": "e14d9c5e9aea4a84c3677e0a7c73268153b15327",
+>>>>>>> parent of 583a85e (470 current  2025-03-17 07:53:02  25.05.20250315.c80f6a7  6.13.7-zen1                          *)
         "type": "github"
       },
       "original": {
@@ -448,11 +456,19 @@
         "xdph": "xdph"
       },
       "locked": {
+<<<<<<< HEAD
         "lastModified": 1742584793,
         "narHash": "sha256-Zhau0ocCNRDg/+MTIutjPkN1+pYjYzgyW3P7eqL/LkQ=",
         "owner": "hyprwm",
         "repo": "Hyprland",
         "rev": "ccbdba7ee2ccb835306de89a6023134fa6b8006f",
+=======
+        "lastModified": 1741998159,
+        "narHash": "sha256-mf3SzoEPxphBb5Ed5TS34BBbBKEZmQPFkrlZ8Bu4+dc=",
+        "owner": "hyprwm",
+        "repo": "Hyprland",
+        "rev": "e59680481d74fdfcc432bb9640ba2c979022c4c2",
+>>>>>>> parent of 583a85e (470 current  2025-03-17 07:53:02  25.05.20250315.c80f6a7  6.13.7-zen1                          *)
         "type": "github"
       },
       "original": {
@@ -651,11 +667,19 @@
     },
     "nixpkgs_2": {
       "locked": {
+<<<<<<< HEAD
         "lastModified": 1742422364,
         "narHash": "sha256-mNqIplmEohk5jRkqYqG19GA8MbQ/D4gQSK0Mu4LvfRQ=",
         "owner": "nixos",
         "repo": "nixpkgs",
         "rev": "a84ebe20c6bc2ecbcfb000a50776219f48d134cc",
+=======
+        "lastModified": 1741851582,
+        "narHash": "sha256-cPfs8qMccim2RBgtKGF+x9IBCduRvd/N5F4nYpU0TVE=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "6607cf789e541e7873d40d3a8f7815ea92204f32",
+>>>>>>> parent of 583a85e (470 current  2025-03-17 07:53:02  25.05.20250315.c80f6a7  6.13.7-zen1                          *)
         "type": "github"
       },
       "original": {
@@ -759,11 +783,19 @@
         "tinted-zed": "tinted-zed"
       },
       "locked": {
+<<<<<<< HEAD
         "lastModified": 1742591463,
         "narHash": "sha256-CguaHULcm4RuIGN+i4u80dYZujFgZaeOTiShFxCwFhw=",
         "owner": "danth",
         "repo": "stylix",
         "rev": "113643f332e1f70d90991722f8c4e5a0ace6fd06",
+=======
+        "lastModified": 1741976991,
+        "narHash": "sha256-74Q3Kpzde+S3pWaZihNFMjCn8lo4wmDVmg+Uvw8YLLQ=",
+        "owner": "danth",
+        "repo": "stylix",
+        "rev": "e43eb4e2a7dfbd96454df2b1c9418299b4373773",
+>>>>>>> parent of 583a85e (470 current  2025-03-17 07:53:02  25.05.20250315.c80f6a7  6.13.7-zen1                          *)
         "type": "github"
       },
       "original": {
