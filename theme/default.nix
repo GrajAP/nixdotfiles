@@ -26,9 +26,7 @@ in {
     #base16Scheme = "${pkgs.base16-schemes}/share/themes/dracula.yaml";
     polarity = "dark"; # "light" or "either
     targets = {
-      spicetify.enable = false;
       #firefox.profileNames = ["default"];
-      #firefox.enable = true;
       #    firefox = {
       #      enable = true;
       #      colorTheme.enable = true;
