@@ -14,7 +14,7 @@
     wf-recorder
     brightnessctl
     pamixer
-    python39Packages.requests
+    #python39Packages.requests
     slurp
     grim
     swappy

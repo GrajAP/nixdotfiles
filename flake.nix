@@ -20,6 +20,12 @@
         inputs.disko.nixosModules.default
         inputs.stylix.nixosModules.stylix
         inputs.home-manager.nixosModules.default
+        {
+          home-manager = {
+            useUserPackages = true;
+            users.grajap.imports = [./home];
+          };
+        }
       ];
     };
   };

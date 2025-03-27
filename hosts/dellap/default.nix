@@ -25,7 +25,7 @@ in {
   networking.hostName = "dellap"; # Define your hostname.
 
   services = {
-    auto-cpufreq.enable = true;
+    auto-cpufreq.enable = false;
     fprintd.enable = true;
     thermald.enable = true;
     # DBus service that provides power management support to applications.

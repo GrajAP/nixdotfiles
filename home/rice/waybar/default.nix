@@ -10,7 +10,7 @@
         ]))
     ];
     dontUnpack = true;
-    installPhase = "install -Dm755 ${./wttr.py} $out/wttr";
+    # installPhase = "install -Dm755 ${./wttr.py} $out/wttr";
   };
 in {
   programs.waybar = {
@@ -30,7 +30,7 @@ in {
           "battery"
           "backlight"
         ];
-        modules-center = ["custom/weather"];
+        #   modules-center = ["custom/weather"];
         modules-right = ["pulseaudio" "bluetooth" "network" "clock"];
         "hyprland/workspaces" = {
           on-click = "activate";

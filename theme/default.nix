@@ -28,6 +28,7 @@ in {
     targets = {
       spicetify.enable = false;
       #firefox.profileNames = ["default"];
+      #firefox.enable = true;
       #    firefox = {
       #      enable = true;
       #      colorTheme.enable = true;

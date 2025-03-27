@@ -14,9 +14,8 @@
 in {
   home.packages = with pkgs; [
     fastfetch
-    ollama
     texlive
-    python3
+    #python3
     gcc
     nodejs
     nodePackages."@angular/cli"
