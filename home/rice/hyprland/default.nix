@@ -6,7 +6,6 @@
   imports = [./config.nix ./binds.nix ./rules.nix];
   home.packages = with pkgs;
   with inputs.hyprcontrib.packages.${pkgs.system}; [
-    catppuccin-cursors.mochaMauve
     libnotify
     swaybg
     wireplumber
@@ -19,9 +18,6 @@
     grim
     swappy
     grimblast
-    catppuccin-cursors
-    catppuccin-qt5ct
-    catppuccin-fcitx5
     hyprpicker
     wl-clip-persist
     wl-clipboard

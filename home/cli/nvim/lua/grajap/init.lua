@@ -1,6 +1,5 @@
 require("grajap.set")
 require("grajap.remap")
-
 require("grajap.lazy_init")
 local augroup = vim.api.nvim_create_augroup
 local GrajAPGroup = augroup('GrajAP', {})
@@ -55,3 +54,4 @@ autocmd('LspAttach', {
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
+vim.cmd("colorscheme catppuccin");

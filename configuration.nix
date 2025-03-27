@@ -6,6 +6,11 @@
   home-manager = {
     extraSpecialArgs = {inherit inputs;};
     useUserPackages = true;
-    users.grajap.imports = [./home];
+    users.grajap = {
+      home.stateVersion = "24.11";
+      imports = [
+        ./home
+      ];
+    };
   };
 }

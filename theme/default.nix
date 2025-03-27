@@ -23,7 +23,8 @@ in {
     enable = true;
     autoEnable = true;
     # base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
-    base16Scheme = ./theme.yaml;
+    base16Scheme =
+      ./theme.yaml;
     polarity = "dark"; # "light" or "either
     cursor = {
       package = pkgs.catppuccin-cursors.mochaMauve;

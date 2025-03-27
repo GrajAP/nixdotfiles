@@ -1,8 +1,8 @@
-{...}:
+{inputs, ...}:
 # glue all configs together
 {
-  config.home.stateVersion = "24.11";
-  config.home.extraOutputsToInstall = ["doc" "devdoc"];
+  home.stateVersion = "24.11";
+  home.extraOutputsToInstall = ["doc" "devdoc"];
   imports = [
     ./packages.nix
     ./cli
