@@ -41,7 +41,7 @@
         # border thiccness
         border_size = 2;
 
-        "col.active_border" = lib.mkForce "rgb(${config.lib.stylix.colors.base0E})";
+        #"col.active_border" = lib.mkForce "rgb(${config.lib.stylix.colors.base0E})";
         #"col.active_border" = lib.mkForce "rgb(${accent})";
         #"col.inactive_border" = "rgb(${surface0})";
       };

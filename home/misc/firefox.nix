@@ -13,6 +13,7 @@ in {
       enable = true;
       languagePacks = ["pl" "en-US"];
       profiles.default = {
+        extensions.force = true;
         search = {
           force = true;
           default = "Startpage";
@@ -115,5 +116,9 @@ in {
       };
     };
   };
-  stylix.targets.firefox.profileNames = ["default"];
+  stylix.targets.firefox = {
+    profileNames = ["default"];
+    #colorTheme.enable = true;
+    #firefoxGnomeTheme.enable = true;
+  };
 }

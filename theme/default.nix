@@ -22,18 +22,9 @@ in {
   stylix = {
     enable = true;
     autoEnable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
-    #base16Scheme = "${pkgs.base16-schemes}/share/themes/dracula.yaml";
+    # base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+    base16Scheme = ./theme.yaml;
     polarity = "dark"; # "light" or "either
-    targets = {
-      #firefox.profileNames = ["default"];
-      #    firefox = {
-      #      enable = true;
-      #      colorTheme.enable = true;
-      #      firefoxGnomeTheme.enable = true;
-      #      profileNames = ["default" "grajap" "grajpap"];
-      #    };
-    };
     cursor = {
       package = pkgs.catppuccin-cursors.mochaMauve;
       name = "Catppuccin-Mocha-Dark-Cursors";
