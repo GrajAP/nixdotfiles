@@ -320,11 +320,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1742588233,
-        "narHash": "sha256-Fi5g8H5FXMSRqy+mU6gPG0v+C9pzjYbkkiePtz8+PpA=",
+        "lastModified": 1742530487,
+        "narHash": "sha256-yjBjRn294NpPagPAQCio20X5BzBXiOoz2+xF3/YmEkU=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "296ddc64627f4a6a4eb447852d7346b9dd16197d",
+        "rev": "d61711497be9ad6a6633aaf203b038b5a970621f",
         "type": "github"
       },
       "original": {
@@ -457,6 +457,7 @@
       },
       "locked": {
 <<<<<<< HEAD
+<<<<<<< HEAD
         "lastModified": 1742584793,
         "narHash": "sha256-Zhau0ocCNRDg/+MTIutjPkN1+pYjYzgyW3P7eqL/LkQ=",
         "owner": "hyprwm",
@@ -469,6 +470,13 @@
         "repo": "Hyprland",
         "rev": "e59680481d74fdfcc432bb9640ba2c979022c4c2",
 >>>>>>> parent of 583a85e (470 current  2025-03-17 07:53:02  25.05.20250315.c80f6a7  6.13.7-zen1                          *)
+=======
+        "lastModified": 1742468927,
+        "narHash": "sha256-3CBAs8OF0etCIaa4p+VyuXfLrL1cvD5E3Dmigqg2YOo=",
+        "owner": "hyprwm",
+        "repo": "Hyprland",
+        "rev": "7ea4fbf0ba034d947339b3a94a10da022eca1988",
+>>>>>>> parent of 7ba3648 (478 current  2025-03-22 09:25:56  25.05.20250319.a84ebe2  6.13.7-zen1                          *)
         "type": "github"
       },
       "original": {
@@ -784,6 +792,7 @@
       },
       "locked": {
 <<<<<<< HEAD
+<<<<<<< HEAD
         "lastModified": 1742591463,
         "narHash": "sha256-CguaHULcm4RuIGN+i4u80dYZujFgZaeOTiShFxCwFhw=",
         "owner": "danth",
@@ -796,6 +805,13 @@
         "repo": "stylix",
         "rev": "e43eb4e2a7dfbd96454df2b1c9418299b4373773",
 >>>>>>> parent of 583a85e (470 current  2025-03-17 07:53:02  25.05.20250315.c80f6a7  6.13.7-zen1                          *)
+=======
+        "lastModified": 1742496983,
+        "narHash": "sha256-UpJrU0DEhNLVZwL/RPVOEUHCG6iDOVDoYelkmgS4V38=",
+        "owner": "danth",
+        "repo": "stylix",
+        "rev": "7e9906679d384472849272e5a5eef7adbdb1d87f",
+>>>>>>> parent of 7ba3648 (478 current  2025-03-22 09:25:56  25.05.20250319.a84ebe2  6.13.7-zen1                          *)
         "type": "github"
       },
       "original": {
