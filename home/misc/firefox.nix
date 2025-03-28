@@ -76,11 +76,15 @@ in {
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/proton-pass/latest.xpi";
             installation_mode = "force_installed";
           };
-          "{d090b7ee-a385-4d54-b9a4-f7164d17756d}" = {
-            install_url = "https://addons.mozilla.org/firefox/downloads/latest/catppuccin-mocha-mauve/latest.xpi";
+          ##       "{d090b7ee-a385-4d54-b9a4-f7164d17756d}" = {
+          ##         install_url = "https://addons.mozilla.org/firefox/downloads/latest/catppuccin-mocha-mauve/latest.xpi";
+          ##         installation_mode = "force_installed";
+          ##       };
+
+          "{2adf0361-e6d8-4b74-b3bc-3f450e8ebb69}" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/catppuccin-mocha-blue/latest.xpi";
             installation_mode = "force_installed";
-          };
-          # "7a7a4a92-a2a0-41d1-9fd7-1e92480d612d" = {
+          }; # "7a7a4a92-a2a0-41d1-9fd7-1e92480d612d" = {
           #   install_url = "https://addons.mozilla.org/firefox/downloads/latest/stylus/latest.xpi";
           #   installation_mode = "force_installed";
           # };

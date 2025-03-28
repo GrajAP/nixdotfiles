@@ -28,10 +28,10 @@ in {
     padding-left = 15
     padding-right = 15
     outline-color = ${config.lib.stylix.colors.withHashtag.base02}
-    border-color = ${config.lib.stylix.colors.withHashtag.base0E}
+    border-color = ${config.lib.stylix.colors.withHashtag.base0D}
     background-color = ${config.lib.stylix.colors.withHashtag.base00}
     text-color = ${config.lib.stylix.colors.withHashtag.base05}
-    selection-color = ${config.lib.stylix.colors.withHashtag.base0E}
+    selection-color = ${config.lib.stylix.colors.withHashtag.base0D}
 
   '';
 }
