@@ -82,7 +82,7 @@ in {
           ##       };
 
           "{2adf0361-e6d8-4b74-b3bc-3f450e8ebb69}" = {
-            install_url = "https://addons.mozilla.org/firefox/downloads/latest/catppuccin-mocha-blue/latest.xpi";
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/catppuccin-mocha-blue-git/latest.xpi";
             installation_mode = "force_installed";
           }; # "7a7a4a92-a2a0-41d1-9fd7-1e92480d612d" = {
           #   install_url = "https://addons.mozilla.org/firefox/downloads/latest/stylus/latest.xpi";

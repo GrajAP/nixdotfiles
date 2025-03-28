@@ -11,7 +11,7 @@
         height = "(0 ,280)";
         offset = "(0,15)";
         corner_radius = 10;
-        origin = "top-center";
+        origin = "top-right";
         notification_limit = 3;
         idle_threshold = 120;
         ignore_newline = "no";

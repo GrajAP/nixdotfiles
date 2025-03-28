@@ -10,7 +10,7 @@
 in {
   home.packages = [pkgs.tofi tofi-emoji];
   xdg.configFile."tofi/config".text = ''
-    anchor = center
+    anchor = right
     width = 500
     height = 300
     horizontal = false
