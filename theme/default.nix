@@ -3,7 +3,7 @@
   lib,
   ...
 }: let
-  wall = ./wall.png;
+  wall = ./nix-black-4k.png;
   mkService = lib.recursiveUpdate {
     Unit.PartOf = ["graphical-session.target"];
     Unit.After = ["graphical-session.target"];
