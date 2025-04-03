@@ -1,4 +1,4 @@
-{...}: let
+{pkgs, ...}: let
   browser = ["firefox.desktop"];
 
   associations = {
@@ -24,6 +24,11 @@
   };
 in {
   xdg = {
+    desktopEntries.librewolf = {
+      name = "firefox";
+      exec = "${pkgs.firefox}/bin/firefox";
+    };
+
     configFile.nvim.source = ./nvim;
     userDirs = {
       enable = true;

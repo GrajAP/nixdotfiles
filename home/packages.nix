@@ -1,11 +1,10 @@
 {pkgs, ...}: {
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
-    chromium
+    # chromium
     electron
     vscode
     github-desktop
-    brave
     udev
     vlc
     caprine-bin

@@ -32,7 +32,7 @@ in {
       size = 24;
     };
     image = wall;
-    targets.gtk.enable = true;
+
     opacity = {
       applications = 1.0;
       terminal = 0.8;
