@@ -1,4 +1,4 @@
-{...}: let
+{pkgs, ...}: let
   lock-false = {
     Value = false;
     Status = "locked";
@@ -17,12 +17,116 @@ in {
         search = {
           force = true;
           default = "Startpage";
+          order = [
+            "Startpage"
+            "Kagi"
+            "DuckDuckGo"
+            "Youtube"
+            "NixOS Options"
+            "Nix Packages"
+            "GitHub"
+            "HackerNews"
+          ];
+
           engines = {
+            "Bing".metaData.hidden = true;
+            "Amazon.com".metaData.hidden = true;
+            "Google".metaData.hidden = true;
             "Startpage" = {
               urls = [{template = "https://www.startpage.com/rvd/search?query={searchTerms}&language=auto";}];
               icon = "https://www.startpage.com/sp/cdn/favicons/mobile/android-icon-192x192.png";
               updateInterval = 24 * 60 * 60 * 1000; # every day
               definedAliases = ["@s"];
+            };
+            "Kagi" = {
+              icon = "https://kagi.com/favicon.ico";
+              updateInterval = 24 * 60 * 60 * 1000;
+              definedAliases = ["@k"];
+              urls = [
+                {
+                  template = "https://kagi.com/search";
+                  params = [
+                    {
+                      name = "q";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+              ];
+            };
+
+            "YouTube" = {
+              icon = "https://youtube.com/favicon.ico";
+              updateInterval = 24 * 60 * 60 * 1000;
+              definedAliases = ["@yt"];
+              urls = [
+                {
+                  template = "https://www.youtube.com/results";
+                  params = [
+                    {
+                      name = "search_query";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+              ];
+            };
+
+            "Nix Packages" = {
+              icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+              definedAliases = ["@np"];
+              urls = [
+                {
+                  template = "https://search.nixos.org/packages";
+                  params = [
+                    {
+                      name = "type";
+                      value = "packages";
+                    }
+                    {
+                      name = "query";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+              ];
+            };
+
+            "NixOS Options" = {
+              icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+              definedAliases = ["@no"];
+              urls = [
+                {
+                  template = "https://search.nixos.org/options";
+                  params = [
+                    {
+                      name = "channel";
+                      value = "unstable";
+                    }
+                    {
+                      name = "query";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+              ];
+            };
+
+            "Home Manager" = {
+              icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+              definedAliases = ["@hm"];
+
+              url = [
+                {
+                  template = "https://mipmip.github.io/home-manager-option-search/";
+                  params = [
+                    {
+                      name = "query";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+              ];
             };
           };
         };
@@ -122,7 +226,5 @@ in {
   };
   stylix.targets.firefox = {
     profileNames = ["default"];
-    #colorTheme.enable = true;
-    #firefoxGnomeTheme.enable = true;
   };
 }
