@@ -19,43 +19,24 @@ in {
           default = "Startpage";
           order = [
             "Startpage"
-            "Kagi"
-            "DuckDuckGo"
-            "Youtube"
+            "ddg"
+            "youtube"
             "NixOS Options"
             "Nix Packages"
-            "GitHub"
-            "HackerNews"
+            "Home Manager"
           ];
 
           engines = {
-            "Bing".metaData.hidden = true;
-            "Amazon.com".metaData.hidden = true;
-            "Google".metaData.hidden = true;
+            "bing".metaData.hidden = true;
+            "amazondotcom-us".metaData.hidden = true;
+            "google".metaData.hidden = true;
             "Startpage" = {
               urls = [{template = "https://www.startpage.com/rvd/search?query={searchTerms}&language=auto";}];
               icon = "https://www.startpage.com/sp/cdn/favicons/mobile/android-icon-192x192.png";
               updateInterval = 24 * 60 * 60 * 1000; # every day
               definedAliases = ["@s"];
             };
-            "Kagi" = {
-              icon = "https://kagi.com/favicon.ico";
-              updateInterval = 24 * 60 * 60 * 1000;
-              definedAliases = ["@k"];
-              urls = [
-                {
-                  template = "https://kagi.com/search";
-                  params = [
-                    {
-                      name = "q";
-                      value = "{searchTerms}";
-                    }
-                  ];
-                }
-              ];
-            };
-
-            "YouTube" = {
+            "youtube" = {
               icon = "https://youtube.com/favicon.ico";
               updateInterval = 24 * 60 * 60 * 1000;
               definedAliases = ["@yt"];
