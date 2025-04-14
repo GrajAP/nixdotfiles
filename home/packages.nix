@@ -13,6 +13,7 @@
     libreoffice-fresh
     calcurse
     spotify-player
+    signal-desktop-bin
     signal-desktop
   ];
 }
