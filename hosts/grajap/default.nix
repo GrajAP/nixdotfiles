@@ -18,15 +18,6 @@
       port = 2283;
       mediaLocation = "/home/grajap/dev/imich-app/library";
     };
-    ollama = {
-      enable = true;
-      #acceleration = "rocm";
-      environmentVariables = {
-        HCC_AMDGPU_TARGET = "gfx803"; # used to be necessary, but doesn't seem to anymore
-      };
-      rocmOverrideGfx = "8.0.3";
-    };
-
     kanata = {
       enable = true;
       keyboards = {
