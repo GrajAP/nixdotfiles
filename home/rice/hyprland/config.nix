@@ -7,6 +7,7 @@
     settings = {
       exec-once = [
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+        "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "brightnessctl set 100%"
         # foot terminal server
         "${lib.optionalString config.programs.foot.server.enable ''foot --server''}"
