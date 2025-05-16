@@ -7,6 +7,7 @@
   environment = {
     # set channels (backwards compatibility)
     sessionVariables.FLAKE = "/etc/nixos";
+    sessionVariables.NH_FLAKE = "/etc/nixos";
     etc = {
       "nix/flake-channels/nixpkgs".source = inputs.nixpkgs;
       "nix/flake-channels/home-manager".source = inputs.home-manager;
