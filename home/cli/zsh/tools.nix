@@ -8,7 +8,6 @@
     };
   };
   programs = {
-    thefuck.enable = true;
     gpg.enable = true;
     man.enable = true;
     eza.enable = true;

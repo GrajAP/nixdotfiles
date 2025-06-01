@@ -76,7 +76,7 @@
 
     # Free up to 1GiB whenever there is less than 100MiB left.
     extraOptions = ''
-      experimental-features = nix-command flakes recursive-nix
+      experimental-features = nix-command flakes recursive-nix repl-flake
       keep-outputs = true
       warn-dirty = false
       keep-derivations = true
@@ -96,7 +96,7 @@
       # continue building derivations if one fails
       keep-going = true;
       log-lines = 40;
-      extra-experimental-features = ["flakes" "nix-command" "recursive-nix" "ca-derivations"];
+      extra-experimental-features = ["flakes" "repl-flake" "nix-command" "recursive-nix" "ca-derivations"];
 
       # use binary cache, its not gentoo
       substituters = [
