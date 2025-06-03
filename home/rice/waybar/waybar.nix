@@ -18,14 +18,13 @@
         margin-right = null;
         exclusive = true;
         modules-left = [
-          "custom/search"
           "hyprland/workspaces"
-          "custom/lock"
-          "backlight"
-          "battery"
-          "idle_inhibitor"
         ];
         modules-right = ["bluetooth" "pulseaudio" "network" "clock"];
+        modules-center = ["sway/window"];
+        "custom/window" = {
+          format = "{icon} {title}";
+        };
 
         "custom/power" = {
           tooltip = false;

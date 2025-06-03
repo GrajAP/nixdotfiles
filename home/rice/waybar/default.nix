@@ -1,18 +1,4 @@
-{pkgs, ...}: let
-  wttr = pkgs.stdenv.mkDerivation {
-    name = "wttr";
-    propagatedBuildInputs = [
-      (pkgs.python3.withPackages (pythonPackages:
-        with pythonPackages; [
-          consul
-          six
-          requests
-        ]))
-    ];
-    dontUnpack = true;
-    # installPhase = "install -Dm755 ${./wttr.py} $out/wttr";
-  };
-in {
+{pkgs, ...}: {
   programs.waybar = {
     enable = true;
     systemd = {
@@ -27,8 +13,6 @@ in {
         spacing = 7;
         modules-left = [
           "hyprland/workspaces"
-          "battery"
-          "backlight"
         ];
         modules-center = ["sway/window"];
         modules-right = ["pulseaudio" "bluetooth" "network" "clock"];
@@ -55,13 +39,6 @@ in {
           persistent_workspaces = {
             "*" = 0;
           };
-        };
-        "custom/weather" = {
-          format = "{}";
-          tooltip = true;
-          interval = 3600;
-          exec = "${wttr}/wttr";
-          return-type = "json";
         };
         clock = {
           format = ''
