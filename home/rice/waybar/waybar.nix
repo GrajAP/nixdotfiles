@@ -9,7 +9,7 @@
       mainBar = {
         layer = "top";
         position = "top";
-        height = 32;
+        height = 36;
         spacing = 7;
         fixed-center = false;
         margin-left = null;
@@ -21,8 +21,8 @@
           "hyprland/workspaces"
         ];
         modules-right = ["bluetooth" "pulseaudio" "network" "clock"];
-        modules-center = ["sway/window"];
-        "custom/window" = {
+        modules-center = ["hyprland/window"];
+        "hyprland/window" = {
           format = "{icon} {title}";
         };
 
