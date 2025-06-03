@@ -23,7 +23,7 @@
         modules-right = ["bluetooth" "pulseaudio" "network" "clock"];
         modules-center = ["hyprland/window"];
         "hyprland/window" = {
-          format = "{icon} {title}";
+          format = "{}";
         };
 
         "custom/power" = {
