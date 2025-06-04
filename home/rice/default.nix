@@ -4,6 +4,6 @@
     ./foot.nix
     ./dunst.nix
     ./hyprland
-    ./waybar/waybar.nix
+    ./waybar
   ];
 }
