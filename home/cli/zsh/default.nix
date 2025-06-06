@@ -6,6 +6,7 @@
 }: {
   home.sessionVariables.STARSHIP_CACHE = "${config.xdg.cacheHome}/starship";
   imports = [./tools.nix];
+  programs.tmux.enable = true;
   programs.zsh = {
     enable = true;
     autosuggestion.enable = true;
