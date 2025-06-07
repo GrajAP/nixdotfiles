@@ -22,38 +22,43 @@ return {
             {},
             vim.lsp.protocol.make_client_capabilities(),
             cmp_lsp.default_capabilities())
-        require("lspconfig").slint_lsp.setup({})
+        require("lspconfig").tsserver.setup({
+            on_attach = on_attach,
+            capabilities = capabilities
+        })
         require("fidget").setup({})
         require("mason").setup()
         require("lspconfig").nixd.setup({
-  cmd = { "nixd" },
-  settings = {
-    nixd = {
-      nixpkgs = {
-        expr = "import <nixpkgs> { }",
-      },
-      formatting = {
-        command = { "alejandra" }, -- or nixfmt or nixpkgs-fmt
-      },
-       options = {
-         nixos = {
-             expr = '(builtins.getFlake "/etc/nixos/").nixosConfigurations.grajap.options',
-         },
-         home_manager = {
-             expr = '(builtins.getFlake "/etc/nixos/").homeConfigurations.grajap.options',
-         },
-       },
-    },
-  },
-})
+            cmd = { "nixd" },
+            settings = {
+                nixd = {
+                    nixpkgs = {
+                        expr = "import <nixpkgs> { }",
+                    },
+                    formatting = {
+                        command = { "alejandra" }, -- or nixfmt or nixpkgs-fmt
+                    },
+                    options = {
+                        nixos = {
+                            expr = '(builtins.getFlake "/etc/nixos/").nixosConfigurations.grajap.options',
+                        },
+                        home_manager = {
+                            expr = '(builtins.getFlake "/etc/nixos/").homeConfigurations.grajap.options',
+                        },
+                    },
+                },
+            },
+        })
         require("mason-lspconfig").setup({
             ensure_installed = {
+                "tsserver",
+                "html",
+                "cssls",
                 "lua_ls",
                 "rust_analyzer",
             },
             handlers = {
                 function(server_name) -- default handler (optional)
-
                     require("lspconfig")[server_name].setup {
                         capabilities = capabilities
                     }
@@ -96,18 +101,18 @@ return {
                 { name = 'buffer' },
             }),
             formatting = {
-      fields = {'menu', 'abbr', 'kind'},
-      format = function(entry, item)
-          local menu_icon ={
-              nvim_lsp = 'λ',
-              vsnip = '⋗',
-              buffer = 'Ω',
-              path = '🖫',
-          }
-          item.menu = menu_icon[entry.source.name]
-          return item
-      end,
-  },
+                fields = { 'menu', 'abbr', 'kind' },
+                format = function(entry, item)
+                    local menu_icon = {
+                        nvim_lsp = 'λ',
+                        vsnip = '⋗',
+                        buffer = 'Ω',
+                        path = '🖫',
+                    }
+                    item.menu = menu_icon[entry.source.name]
+                    return item
+                end,
+            },
         })
 
         vim.diagnostic.config({
