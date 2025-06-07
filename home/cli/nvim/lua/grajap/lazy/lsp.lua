@@ -22,7 +22,7 @@ return {
             {},
             vim.lsp.protocol.make_client_capabilities(),
             cmp_lsp.default_capabilities())
-        require("lspconfig").tsserver.setup({
+        require("lspconfig").ts_ls.setup({
             on_attach = on_attach,
             capabilities = capabilities
         })
@@ -51,7 +51,7 @@ return {
         })
         require("mason-lspconfig").setup({
             ensure_installed = {
-                "tsserver",
+                "ts_ls",
                 "html",
                 "cssls",
                 "lua_ls",
