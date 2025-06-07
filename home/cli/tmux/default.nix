@@ -20,39 +20,57 @@ in {
     ];
     clock24 = true;
     extraConfig = ''
-           set -g mouse on
+                 set -g mouse on
+      set -g default-terminal "tmux-256color"
 
-           unbind C-b
-           set -g prefix C-Space
-           bind C-Space send-prefix
+      # Configure the catppuccin plugin
+      set -g @catppuccin_flavor "mocha"
+      set -g @catppuccin_window_status_style "rounded"
 
-           bind h select-pane -L
-           bind j select-pane -D
-           bind k select-pane -U
-           bind l select-pane -R
+      # Load catppuccin
+      run ~/.config/tmux/plugins/catppuccin/tmux/catppuccin.tmux
+      # For TPM, instead use `run ~/.tmux/plugins/tmux/catppuccin.tmux`
 
-           # Start windows and panes at 1, not 0
-           set -g base-index 1
-           set -g pane-base-index 1
-           set-window-option -g pane-base-index 1
-           set-option -g renumber-windows on
+      # Make the status line pretty and add some modules
+      set -g status-right-length 100
+      set -g status-left-length 100
+      set -g status-left ""
+      set -g status-right "#{E:@catppuccin_status_application}"
+      set -agF status-right "#{E:@catppuccin_status_cpu}"
+      set -ag status-right "#{E:@catppuccin_status_session}"
+      set -ag status-right "#{E:@catppuccin_status_uptime}"
+      set -agF status-right "#{E:@catppuccin_status_battery}"
+                 unbind C-b
+                 set -g prefix C-Space
+                 bind C-Space send-prefix
 
-      ${builtins.concatStringsSep "\n" (map (x: "run-shell ${pkgs.tmuxPlugins.${x}}/share/tmux-plugins/${x}.tmux") plugins)}
+                 bind h select-pane -L
+                 bind j select-pane -D
+                 bind k select-pane -U
+                 bind l select-pane -R
 
-           # set vi-mode
-           set-window-option -g mode-keys vi
-           # keybindings
-           bind-key -T copy-mode-vi v send-keys -X begin-selection
-           bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
-           bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+                 # Start windows and panes at 1, not 0
+                 set -g base-index 1
+                 set -g pane-base-index 1
+                 set-window-option -g pane-base-index 1
+                 set-option -g renumber-windows on
 
-           bind '"' split-window -v -c "#{pane_current_path}"
-           bind % split-window -h -c "#{pane_current_path}"
+            ${builtins.concatStringsSep "\n" (map (x: "run-shell ${pkgs.tmuxPlugins.${x}}/share/tmux-plugins/${x}.tmux") plugins)}
+
+                 # set vi-mode
+                 set-window-option -g mode-keys vi
+                 # keybindings
+                 bind-key -T copy-mode-vi v send-keys -X begin-selection
+                 bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
+                 bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+
+                 bind '"' split-window -v -c "#{pane_current_path}"
+                 bind % split-window -h -c "#{pane_current_path}"
 
 
-           set -g status-interval 1
-           set -g status-right-length 60
-           set-window-option -g window-status-separator ""
+                 set -g status-interval 1
+                 set -g status-right-length 60
+                 set-window-option -g window-status-separator ""
 
     '';
   };
