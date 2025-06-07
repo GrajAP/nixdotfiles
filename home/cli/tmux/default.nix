@@ -14,6 +14,7 @@ in {
 
     plugins = with pkgs; [
       tmuxPlugins.vim-tmux-navigator
+      tmuxPlugins.catppuccin
       tmuxPlugins.sensible
       tmuxPlugins.yank
     ];
