@@ -10,7 +10,7 @@ with pkgs; {
     ${getExe yt-dlp} -x --continue --add-metadata --embed-thumbnail --audio-format mp3 --audio-quality 0 --metadata-from-title="%(artist)s - %(title)s" --prefer-ffmpeg -o "%(title)s.%(ext)s"'';
   cat = "${getExe bat} --style=plain";
   vpn = "mullvad";
-  nvim = "neovide";
+  # nvim = "neovide";
   vim = "nvim";
   uuid = "cat /proc/sys/kernel/random/uuid";
   grep = getExe ripgrep;
