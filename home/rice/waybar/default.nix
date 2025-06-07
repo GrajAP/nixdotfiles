@@ -26,7 +26,7 @@
           format = "{}";
           rewrite = {
             "(.*) — Mozilla Firefox" = "🌎 $1";
-            "(.*) - fish" = "> [$1]";
+            "(.*) - zsh " = "> [$1]";
           };
           separate-outputs = true;
           icon = true;

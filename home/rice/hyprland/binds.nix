@@ -23,7 +23,7 @@ in {
   wayland.windowManager.hyprland.settings = {
     bind =
       [
-        ''${mod},RETURN,exec,foot${lib.optionalString config.programs.foot.server.enable "client"}''
+        ''${mod},RETURN,exec,foot${lib.optionalString config.programs.foot.server.enable "client"} -e tmux''
         "${mod},SPACE,exec,$(tofi-drun)"
         "${mod},F,exec,firefox"
         "${mod},D,exec,discord"

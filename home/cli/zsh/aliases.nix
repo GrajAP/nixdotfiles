@@ -11,6 +11,7 @@ with pkgs; {
   cat = "${getExe bat} --style=plain";
   vpn = "mullvad";
   nvim = "neovide";
+  vim = "nvim";
   uuid = "cat /proc/sys/kernel/random/uuid";
   grep = getExe ripgrep;
   wget = "wget --hsts-file=\"${config.xdg.dataHome}/wget-hsts\"";
