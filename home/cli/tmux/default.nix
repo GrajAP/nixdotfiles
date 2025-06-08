@@ -1,6 +1,4 @@
-{pkgs, ...}: let
-  plugins = ["vim-tmux-navigator" "sensible" "yank"];
-in {
+{pkgs, ...}: {
   programs.tmux = {
     enable = true;
     shortcut = "a";
@@ -23,17 +21,7 @@ in {
                  set -g mouse on
       set -g default-terminal "tmux-256color"
       set -g @catppuccin_flavor "mocha"
-      set -g @catppuccin_window_status_style "rounded"
 
-      # Make the status line pretty and add some modules
-      set -g status-right-length 100
-      set -g status-left-length 100
-      set -g status-left ""
-      set -g status-right "#{E:@catppuccin_status_application}"
-      set -agF status-right "#{E:@catppuccin_status_cpu}"
-      set -ag status-right "#{E:@catppuccin_status_session}"
-      set -ag status-right "#{E:@catppuccin_status_uptime}"
-      set -agF status-right "#{E:@catppuccin_status_battery}"
                  unbind C-b
                  set -g prefix C-Space
                  bind C-Space send-prefix
@@ -48,8 +36,6 @@ in {
                  set -g pane-base-index 1
                  set-window-option -g pane-base-index 1
                  set-option -g renumber-windows on
-
-            ${builtins.concatStringsSep "\n" (map (x: "run-shell ${pkgs.tmuxPlugins.${x}}/share/tmux-plugins/${x}.tmux") plugins)}
 
                  # set vi-mode
                  set-window-option -g mode-keys vi
