@@ -2,7 +2,7 @@
   environment.systemPackages = with pkgs; [
     vesktop
     (discord.override {
-      withOpenASAR = false;
+      withOpenASAR = true;
       withVencord = true;
     })
   ];

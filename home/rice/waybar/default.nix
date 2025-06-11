@@ -11,7 +11,6 @@
         position = "top";
         height = 36;
         spacing = 7;
-        fixed-center = false;
         margin-left = null;
         margin-top = null;
         margin-bottom = null;
@@ -32,7 +31,8 @@
           icon = true;
         };
         clock = {
-          format = "{%d-%m-%Y}";
+          format = "{:%Y-%m-%d %H:%M:%S}";
+          interval = 1;
           tooltip-format = ''
             <big>{:%Y %B}</big>
             <tt><small>{calendar}</small></tt>'';
@@ -45,10 +45,6 @@
         backlight = {
           format = "{icon} {percent}%";
           format-icons = ["" "" "" "" "" "" "" "" ""];
-        };
-        cpu = {
-          interval = 5;
-          format = "  {}%";
         };
         battery = {
           states = {

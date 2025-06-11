@@ -58,7 +58,7 @@ in {
       set -ga status-left '#[bg=#${black}]#[fg=#${accent}]#{?window_zoomed_flag,   , }'
       set -g window-status-current-format '#[bold]#[fg=#${black}]#[bg=#${accent}] #I#[nobold] #W '
       set -g window-status-format '#[bold]#[fg=#${text}]#[bg=#${black}] #I#[nobold] #W '
-      set -g status-right #[fg=#${accent},bg=#${black}]  #{pane_current_path}'  #[fg=#${accent},bg=#${black}]  #S '
+      set -g status-right '#[fg=#${accent},bg=#${black}]  #{pane_current_path} #[fg=#${accent},bg=#${black}]  #S '
     '';
   };
 }
