@@ -50,7 +50,7 @@ in {
       set-option -g status-position top
 
 
-      set -g status-style bg='#${background}',fg='#${text}'
+      set -g status-style bg=default,fg='#${text}'
       set -g status-interval 1
       set -g status-right-length 60
       set-window-option -g window-status-separator ""
@@ -59,7 +59,7 @@ in {
       set -ga status-left '#[bg=#${black}]#[fg=#${accent}]#{?window_zoomed_flag,   , }'
       set -g window-status-current-format "#[bold]#[fg=#${text}]#[bg=#${accent}] #I#[nobold] #W "
       set -g window-status-format "#[bold]#[fg=#${text}]#[bg=#${black}] #I#[nobold] #W "
-      set -g status-right '#[fg=#${text},bg=#${black}] #("#{pane_current_path}")'
+      set -g status-right '#[fg=#${text},bg=#${black}] #{pane_current_path}'
       set -ga status-right '#[fg=#${text},bg=#${black}] %a %H:%M:%S #[fg=#${text},bg=#${accent}] %d-%m-%Y '
     '';
   };
