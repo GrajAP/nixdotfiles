@@ -5,7 +5,6 @@
 }: let
   tmuxPlugins = pkgs.tmuxPlugins;
   black = config.lib.stylix.colors.base00;
-  background = config.lib.stylix.colors.base02;
   text = config.lib.stylix.colors.base05;
   accent = config.lib.stylix.colors.base0D;
 in {
@@ -52,15 +51,15 @@ in {
 
       set -g status-style bg=default,fg='#${text}'
       set -g status-interval 1
-      set -g status-right-length 60
+      set -g status-right-length 100
       set-window-option -g window-status-separator ""
-      set -g status-left "#[bg=#${black}]#[fg=#${text}]"
+      set -g status-left '#[bg=#${black}]#[fg=#${text}]'
       set -g status-left '#[bg=#${black}]#[fg=#${text}]#{?client_prefix,#[fg=#${accent}],} 󱄅 '
       set -ga status-left '#[bg=#${black}]#[fg=#${accent}]#{?window_zoomed_flag,   , }'
-      set -g window-status-current-format "#[bold]#[fg=#${text}]#[bg=#${accent}] #I#[nobold] #W "
-      set -g window-status-format "#[bold]#[fg=#${text}]#[bg=#${black}] #I#[nobold] #W "
-      set -g status-right '#[fg=#${text},bg=#${black}] #{pane_current_path}'
-      set -ga status-right '#[fg=#${text},bg=#${black}] %a %H:%M:%S #[fg=#${text},bg=#${accent}] %d-%m-%Y '
+      set -g window-status-current-format '#[bold]#[fg=#${text}]#[bg=#${accent}] #I#[nobold] #W '
+      set -g window-status-format '#[bold]#[fg=#${text}]#[bg=#${black}] #I#[nobold] #W '
+      set -g status-right '#[fg=#${text},bg=#${black}]   #{pane_current_path}'
+      set -g status-right '#[fg=#${accent},bg=#${black}]  #S'
     '';
   };
 }
