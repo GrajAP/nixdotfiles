@@ -31,27 +31,12 @@
           separate-outputs = true;
           icon = true;
         };
-
-        "custom/power" = {
-          tooltip = false;
-          # TODO
-          format = "󰐥";
-        };
         clock = {
-          format = "%a %H:%M %d-%m-%Y";
+          format = "{%H:%M %d-%m-%Y}";
           tooltip-format = ''
             <big>{:%Y %B}</big>
             <tt><small>{calendar}</small></tt>'';
         };
-
-        "idle_inhibitor" = {
-          format = "{icon}";
-          format-icons = {
-            activated = "";
-            deactivated = "󰔟";
-          };
-        };
-
         bluetooth = {
           on-click = ''
             bash -c 'bluetoothctl power $(bluetoothctl show | grep -q "Powered: yes" && echo off || echo on)'
