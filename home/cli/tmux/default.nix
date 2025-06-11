@@ -8,7 +8,6 @@
   background = config.lib.stylix.colors.base02;
   text = config.lib.stylix.colors.base05;
   accent = config.lib.stylix.colors.base0D;
-  plugins = ["vim-tmux-navigator" "sensible" "yank"];
 in {
   programs.tmux = {
     enable = true;
@@ -35,7 +34,6 @@ in {
       set-window-option -g pane-base-index 1
       set-option -g renumber-windows on
 
-      ${builtins.concatStringsSep "\n" (map (x: "run-shell ${pkgs.tmuxPlugins.${x}}/share/tmux-plugins/${x}.tmux") plugins)}
 
       # set vi-mode
       set-window-option -g mode-keys vi
@@ -49,6 +47,8 @@ in {
 
       set -g pane-border-style fg='#${black}'
       set -g pane-active-border-style fg='#${accent}'
+      set-option -g status-position top
+
 
       set -g status-style bg='#${background}',fg='#${text}'
       set -g status-interval 1
@@ -59,8 +59,8 @@ in {
       set -ga status-left '#[bg=#${black}]#[fg=#${accent}]#{?window_zoomed_flag,   , }'
       set -g window-status-current-format "#[bold]#[fg=#${text}]#[bg=#${accent}] #I#[nobold] #W "
       set -g window-status-format "#[bold]#[fg=#${text}]#[bg=#${black}] #I#[nobold] #W "
-      set -g status-right '#[fg=#${text},bg=#${background}] #(${pkgs.tmux-mem-cpu-load}/bin/tmux-mem-cpu-load -g 0 -a 0 --interval 2) '
-      set -ga status-right '#[fg=#${text},bg=#${black}] %a %H:%M:%S #[fg=#${text},bg=#${accent}] %Y-%m-%d '
+      set -g status-right '#[fg=#${text},bg=#${black}] #("#{pane_current_path}")'
+      set -ga status-right '#[fg=#${text},bg=#${black}] %a %H:%M:%S #[fg=#${text},bg=#${accent}] %d-%m-%Y '
     '';
   };
 }
