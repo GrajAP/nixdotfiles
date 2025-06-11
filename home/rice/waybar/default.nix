@@ -32,7 +32,7 @@
           icon = true;
         };
         clock = {
-          format = "{%H:%M %d-%m-%Y}";
+          format = "{%d-%m-%Y}";
           tooltip-format = ''
             <big>{:%Y %B}</big>
             <tt><small>{calendar}</small></tt>'';
