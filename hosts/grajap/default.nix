@@ -10,6 +10,11 @@
     acpi
     powertop
   ];
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+  };
 
   networking.hostName = "grajap"; # Define your hostname.
   services = {
