@@ -111,7 +111,11 @@
   programs = {
     # allow users to mount fuse filesystems with allow_other
     fuse.userAllowOther = true;
-
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+    };
     # help manage android devices via command line
     adb.enable = true;
 
