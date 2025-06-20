@@ -1,0 +1,20 @@
+#!/bin/sh
+
+SERVICE="kanata-internalKeyboard"
+
+# Check if the service exists
+if ! systemctl list-units --type=service --all | grep -q "$SERVICE.service"; then
+  echo "Service '$SERVICE' not found."
+  exit 1
+fi
+
+# Get the current status of the service
+STATUS=$(systemctl is-active "$SERVICE")
+
+if [ "$STATUS" = "active" ]; then
+  echo "Stopping $SERVICE..."
+  sudo systemctl stop "$SERVICE.service"
+else
+  echo "Starting $SERVICE..."
+  sudo systemctl start "$SERVICE.service"
+fi

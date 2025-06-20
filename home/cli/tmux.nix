@@ -33,7 +33,6 @@ in {
       set-window-option -g pane-base-index 1
       set-option -g renumber-windows on
 
-
       # set vi-mode
       set-window-option -g mode-keys vi
       # keybindings
@@ -47,7 +46,6 @@ in {
       set -g pane-border-style fg='#${black}'
       set -g pane-active-border-style fg='#${accent}'
       set-option -g status-position top
-
 
       set -g status-style bg=default,fg='#${text}'
       set -g status-interval 1

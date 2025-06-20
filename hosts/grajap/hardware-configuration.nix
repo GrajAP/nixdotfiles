@@ -29,11 +29,6 @@
     options = ["fmask=0077" "dmask=0077"];
   };
 
-  fileSystems."/mnt/SSD2" = {
-    device = "/dev/sda";
-    fsType = "ext4";
-    options = ["defaults"];
-  };
   swapDevices = [
     {device = "/dev/disk/by-uuid/077c363f-8773-499c-b54a-5899e5fdd9ec";}
   ];

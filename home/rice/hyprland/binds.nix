@@ -23,8 +23,11 @@ in {
   wayland.windowManager.hyprland.settings = {
     bind =
       [
-        ''${mod},RETURN,exec,foot${lib.optionalString config.programs.foot.server.enable "client"} -e tmux''
-        "${mod},SPACE,exec,$(tofi-drun)"
+        #  ''${mod},RETURN,exec,foot${lib.optionalString config.programs.foot.server.enable "client"} -e tmux''
+        ''${mod},RETURN,exec,foot${lib.optionalString config.programs.foot.server.enable "client"} -e sh -c 'tmux attach || exec tmux' ''
+
+        #"${mod},SPACE,exec,$(tofi-drun)"
+        "${mod},SPACE,exec,$(anyrun)"
         "${mod},F,exec,firefox"
         "${mod},D,exec,discord"
         "${mod},D,exec,vesktop"
@@ -32,7 +35,6 @@ in {
         "${mod},P,pseudo"
 
         ",XF86Bluetooth, exec, bcn"
-        "${mod},M,exec,hyprctl keyword $kw $(($(hyprctl getoption $kw -j | jaq -r '.int') ^ 1))" # toggle no_gaps_when_only
         "${mod},T,togglegroup," # group focused window
         "${modshift},G,changegroupactive," # switch within the active group
         "${mod},V,togglefloating," # toggle floating for the focused window
@@ -48,9 +50,10 @@ in {
 
         ",Print,exec, pauseshot"
         ",Print,exec, grim - | wl-copy"
-        "${modshift},O,exec,wl-ocr"
+        "${modshift},O,exec,foot -e katana-switch | exit"
 
-        "${mod},Period,exec, tofi-emoji"
+        #"${mod},Period,exec, tofi-emoji"
+        "${mod},Period,exec, emote"
 
         "${mod},Semicolon,exec,wlogout"
       ]

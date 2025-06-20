@@ -1,6 +1,6 @@
 {...}: {
   imports = [
-    ./tofi
+    ./anyrun.nix
     ./foot.nix
     ./dunst.nix
     ./hyprland

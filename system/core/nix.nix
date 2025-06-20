@@ -115,7 +115,6 @@
   system = {
     switch = {
       enable = false;
-      enableNg = true;
     };
     autoUpgrade = {
       enable = false;

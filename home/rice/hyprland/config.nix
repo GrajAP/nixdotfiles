@@ -11,6 +11,8 @@
         "brightnessctl set 100%"
         # foot terminal server
         "${lib.optionalString config.programs.foot.server.enable ''foot --server''}"
+        "uair"
+        "uairctl toggle"
       ];
 
       gestures = {
@@ -27,7 +29,8 @@
         kb_layout = "pl";
         kb_options = "caps:escape";
         follow_mouse = 1;
-        sensitivity = 0.8;
+        sensitivity = 0.0;
+        accel_profile = "flat";
       };
 
       general = {

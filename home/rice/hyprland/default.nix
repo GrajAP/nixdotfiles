@@ -8,12 +8,12 @@
   with inputs.hyprcontrib.packages.${pkgs.system}; [
     libnotify
     swaybg
+    emote
     wireplumber
     nwg-look
     wf-recorder
     brightnessctl
     pamixer
-    #python39Packages.requests
     slurp
     grim
     swappy
@@ -23,6 +23,7 @@
     wl-clipboard
     pngquant
     cliphist
+    uair
     (writeShellScriptBin
       "pauseshot"
       ''

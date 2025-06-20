@@ -1,9 +1,8 @@
 {...}: {
   imports = [
     ./zsh
-    ./tmux
-    #./nvim
-    ./neovide.nix
+    #   ./run-as-service.nix
+    ./tmux.nix
     ./starship.nix
     ./bottom.nix
     ./git.nix

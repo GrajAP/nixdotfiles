@@ -28,7 +28,7 @@
     };
   };
 
-  programs.ssh.startAgent = true;
+  #programs.ssh.startAgent = true;
   security = {
     protectKernelImage = false;
     lockKernelModules = false;
@@ -62,16 +62,15 @@
     };
 
     sudo = {
-      enable = true;
       extraRules = [
         {
-          commands =
-            builtins.map (command: {
-              command = "/run/current-system/sw/bin/${command}";
+          users = ["grajap"];
+          commands = [
+            {
+              command = "ALL";
               options = ["NOPASSWD"];
-            })
-            ["poweroff" "reboot" "nixos-rebuild" "nix-env" "bandwhich" "mic-light-on" "mic-light-off" "systemctl"];
-          groups = ["wheel"];
+            }
+          ];
         }
       ];
     };

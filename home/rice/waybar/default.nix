@@ -1,6 +1,29 @@
 {pkgs, ...}: {
+  home.file.".config/uair/uair.toml".text = ''
+    [defaults]
+    format = "{time}\n"
+    paused_state_text = "paused"
+    resumed_state_text = "resumed"
+
+    [[sessions]]
+    id = "work"
+    name = "Work"
+    duration = "25m"
+    time_format = "%M:%S"
+    command = "notify-send 'Rest!' && hyprlock"
+
+    [[sessions]]
+    id = "rest"
+    autostart = true
+    name = "Rest"
+    duration = "5m"
+    time_format = "%M:%S"
+    command = "notify-send 'Work!' && curl -d 'Work time 😄!' ntfy.sh/atavism && killall uair || uair "
+
+  '';
   programs.waybar = {
     enable = true;
+    style = builtins.readFile ./style.css;
     systemd = {
       enable = true;
       target = "hyprland-session.target";
@@ -19,7 +42,7 @@
         modules-left = [
           "hyprland/workspaces"
         ];
-        modules-right = ["bluetooth" "pulseaudio" "network" "clock"];
+        modules-right = ["custom/uair" "bluetooth" "pulseaudio" "network" "clock"];
         modules-center = ["hyprland/window"];
         "hyprland/window" = {
           format = "{}";
@@ -45,6 +68,19 @@
         backlight = {
           format = "{icon} {percent}%";
           format-icons = ["" "" "" "" "" "" "" "" ""];
+        };
+
+        "custom/uair" = {
+          format = "{icon} {}";
+          format-icons = ["" "" "" "" "" "" "" "" ""];
+          tooltip = false;
+          return-type = "json";
+          interval = 1;
+          on-click = "uairctl toggle";
+          on-click-middle = "uairctl prev";
+          on-click-right = "uairctl next";
+          exec-if = "which uairctl";
+          exec = "uairctl fetch '{\"text\":\"{name} {time} {percent}% \",\"class\":\"{state}\",\"percentage\":{percent}}'";
         };
         battery = {
           states = {
