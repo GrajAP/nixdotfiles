@@ -41,6 +41,7 @@
         exclusive = true;
         modules-left = [
           "hyprland/workspaces"
+          "battery"
         ];
         modules-right = ["custom/uair" "bluetooth" "pulseaudio" "network" "clock"];
         modules-center = ["hyprland/window"];

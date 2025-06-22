@@ -114,7 +114,7 @@
   };
   system = {
     switch = {
-      enable = false;
+      enable = true;
     };
     autoUpgrade = {
       enable = false;
