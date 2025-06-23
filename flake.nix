@@ -22,6 +22,16 @@
         inputs.home-manager.nixosModules.default
       ];
     };
+    nixosConfigurations.grajpap = nixpkgs.lib.nixosSystem {
+      specialArgs = {inherit inputs;};
+
+      modules = [
+        (import ./hosts/grajpap)
+        ./configuration.nix
+        inputs.stylix.nixosModules.stylix
+        inputs.home-manager.nixosModules.default
+      ];
+    };
   };
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
