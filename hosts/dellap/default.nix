@@ -25,6 +25,45 @@ in {
   networking.hostName = "dellap"; # Define your hostname.
 
   services = {
+    kanata = {
+      enable = true;
+      keyboards = {
+        internalKeyboard = {
+          devices = [
+            "/dev/input/by-path/platform-i8042-serio-0-event-kbd"
+          ];
+          extraDefCfg = "process-unmapped-keys yes";
+          config = ''
+
+            (defsrc
+              caps a s d f j k l ;
+            )
+            (defvar
+              tap-time 200
+              hold-time 200
+            )
+
+            (defalias
+              escctrl (tap-hold $tap-time $hold-time esc lctl)
+              a (multi f24 (tap-hold $tap-time $hold-time a lmet))
+              s (multi f24 (tap-hold $tap-time $hold-time s ralt))
+              d (multi f24 (tap-hold $tap-time $hold-time d lsft))
+              f (multi f24 (tap-hold $tap-time $hold-time f lctl))
+              j (multi f24 (tap-hold $tap-time $hold-time j lctl))
+              k (multi f24 (tap-hold $tap-time $hold-time k lsft))
+              l (multi f24 (tap-hold $tap-time $hold-time l ralt))
+              ; (multi f24 (tap-hold $tap-time $hold-time ; lmet))
+            )
+
+            (deflayer base
+              @escctrl @a @s @d @f @j @k @l @;
+            )
+
+
+          '';
+        };
+      };
+    };
     auto-cpufreq.enable = false;
     fprintd.enable = true;
     thermald.enable = true;
